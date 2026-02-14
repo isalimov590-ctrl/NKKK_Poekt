@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Загрязнение Мирового океана | 2026 - год решений</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ocean-blue: #0077b6;
+            --deep-blue: #03045e;
+            --marine-green: #00b4d8;
+            --coral-red: #ff6b6b;
+            --sand-beige: #f8f9fa;
+            --plastik-gray: #6c757d;
+            --wave-light: #90e0ef;
+            --dark-bg: #0a1929;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* 🔷 НАВИГАЦИЯ */
+        .ocean-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 25, 41, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 20px 0;
+            z-index: 9999;
+            border-bottom: 3px solid var(--marine-green);
+            box-shadow: 0 10px 40px rgba(0, 119, 182, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--ocean-blue), var(--marine-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 0 20px rgba(0, 180, 216, 0.5);
+        }
+
+        .nav-logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, var(--marine-green), var(--wave-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 10px 0;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--marine-green);
+            transition: width 0.4s ease;
+            border-radius: 2px;
+        }
+
+        .nav-link:hover {
+            color: white;
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--marine-green);
+        }
+
+        .nav-link.active::before {
+            width: 100%;
+        }
+
+        .nav-mobile-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--marine-green);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* 🌊 ГЛАВНЫЙ ЭКРАН */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 200px 0 100px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(3, 4, 94, 0.85), rgba(0, 119, 182, 0.85)),
+                        url('https://images.unsplash.com/photo-1439405326854-014607f694d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            text-align: center;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            line-height: 1.1;
+            color: white;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-title span {
+            background: linear-gradient(90deg, var(--marine-green), var(--wave-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .year-2026 {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--coral-red), #ff9e00);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 2.5rem;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 50px;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+        }
+
+        .ocean-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 40px;
+            background: linear-gradient(135deg, var(--ocean-blue), var(--marine-green));
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(0, 119, 182, 0.4);
+        }
+
+        .ocean-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 119, 182, 0.6);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 80px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--marine-green), var(--wave-light));
+        }
+
+        .stat-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--marine-green);
+            box-shadow: 0 20px 40px rgba(0, 119, 182, 0.3);
+        }
+
+        .stat-value {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--marine-green), var(--wave-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* 🎯 ПРИЧИНЫ ЗАГРЯЗНЕНИЯ */
+        .causes-section {
+            padding: 150px 0;
+            background: linear-gradient(45deg, #f8f9fa, #e3f2fd, #f8f9fa);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .causes-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 1;
+        }
+
+        .causes-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 90px;
+            background: linear-gradient(90deg, var(--deep-blue), var(--ocean-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--ocean-blue), var(--marine-green));
+            border-radius: 2px;
+            box-shadow: 0 5px 15px rgba(0, 119, 182, 0.3);
+        }
+
+        .causes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            perspective: 1000px;
+        }
+
+        .cause-card {
+            background: white;
+            border: 2px solid transparent;
+            border-radius: 25px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            /* Убираем изображение, добавляем верхнюю полоску-акцент */
+            border-top: 6px solid;
+        }
+        .cause-card.cause-1 { border-top-color: var(--coral-red); }
+        .cause-card.cause-2 { border-top-color: var(--plastik-gray); }
+        .cause-card.cause-3 { border-top-color: #ff9e00; }
+
+        .cause-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(0, 119, 182, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .cause-card:hover::before {
+            opacity: 1;
+        }
+
+        .cause-card:hover {
+            transform: translateY(-20px) rotateX(5deg);
+            border-color: var(--marine-green);
+            box-shadow: 0 30px 80px rgba(0, 119, 182, 0.2);
+        }
+
+        /* изображения удалены — класс .cause-image больше не используется */
+        .cause-content {
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .cause-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cause-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--ocean-blue), var(--marine-green));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .cause-title {
+            font-size: 1.7rem;
+            color: var(--deep-blue);
+            line-height: 1.3;
+            word-break: break-word;
+            flex: 1;
+        }
+
+        .cause-header > div:last-child {
+            flex: 1;
+        }
+        .cause-header > div:last-child p {
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .cause-stats {
+            display: flex;
+            justify-content: space-around;
+            background: linear-gradient(135deg, rgba(0, 119, 182, 0.1), rgba(0, 180, 216, 0.1));
+            padding: 15px 10px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 119, 182, 0.2);
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .cause-stat {
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .cause-stat-number {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--ocean-blue);
+            line-height: 1;
+            font-family: 'Montserrat', sans-serif;
+            white-space: nowrap;
+        }
+
+        .cause-stat-desc {
+            font-size: 0.75rem;
+            color: var(--plastik-gray);
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            word-break: break-word;
+        }
+
+        .cause-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .cause-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .cause-list li:hover {
+            color: var(--ocean-blue);
+            transform: translateX(8px);
+        }
+
+        .cause-list i {
+            color: var(--coral-red);
+            margin-top: 4px;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .impact-box {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 158, 0, 0.1));
+            border-left: 5px solid var(--coral-red);
+            padding: 20px;
+            border-radius: 0 15px 15px 0;
+            margin-top: 15px;
+            position: relative;
+            overflow: hidden;
+            font-size: 0.95rem;
+        }
+
+        .impact-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-size: 4rem;
+            opacity: 0.2;
+        }
+
+        /* 🌍 ПОСЛЕДСТВИЯ */
+        .consequences-section {
+            padding: 150px 0;
+            background: linear-gradient(45deg, var(--deep-blue), #001845, var(--deep-blue));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consequences-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .consequences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .consequence-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consequence-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--ocean-blue), var(--marine-green));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .consequence-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .consequence-card:hover {
+            transform: translateY(-20px) scale(1.03);
+            border-color: var(--marine-green);
+            box-shadow: 0 25px 60px rgba(0, 119, 182, 0.3);
+        }
+
+        .consequence-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--coral-red), #ff9e00);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 30px;
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .consequence-card:hover .consequence-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .consequence-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .consequence-desc {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+
+        /* 🎯 2026 - ГОД РЕШЕНИЙ */
+        .year-2026-section {
+            padding: 150px 0;
+            background: linear-gradient(45deg, #f8f9fa, #e3f2fd, #f8f9fa);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .year-2026-section::before {
+            content: '2026';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40rem;
+            font-weight: 900;
+            color: rgba(0, 119, 182, 0.03);
+            z-index: 1;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .year-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .year-title {
+            font-size: 4rem;
+            margin-bottom: 50px;
+            background: linear-gradient(90deg, var(--coral-red), #ff9e00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .year-subtitle {
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: var(--deep-blue);
+            font-weight: 600;
+        }
+
+        .year-goals {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 70px;
+        }
+
+        .goal-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 60px rgba(0, 119, 182, 0.1);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .goal-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--marine-green);
+            box-shadow: 0 30px 80px rgba(0, 119, 182, 0.2);
+        }
+
+        .goal-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--ocean-blue);
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .goal-title {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--deep-blue);
+        }
+
+        .goal-desc {
+            color: var(--plastik-gray);
+            line-height: 1.8;
+        }
+
+        /* 📞 ПРИЗЫВ К ДЕЙСТВИЮ */
+        .action-section {
+            padding: 150px 0;
+            background: linear-gradient(135deg, var(--deep-blue), #001845);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .action-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .action-title {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .action-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 50px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .action-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .step-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.4s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--marine-green);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: var(--marine-green);
+            color: white;
+            border-radius: 50%;
+            line-height: 50px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .step-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .step-desc {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* 👣 ФУТЕР */
+        .ocean-footer {
+            background: linear-gradient(to bottom, rgba(10, 25, 41, 0.95), var(--dark-bg));
+            padding: 100px 0 50px;
+            border-top: 3px solid var(--marine-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ocean-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 119, 182, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 180, 216, 0.1) 0%, transparent 50%);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, var(--marine-green), var(--wave-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .footer-desc {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-link {
+            width: 55px;
+            height: 55px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.4s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--ocean-blue), var(--marine-green));
+            transform: translateY(-10px) rotate(15deg);
+            box-shadow: 0 10px 30px rgba(0, 119, 182, 0.4);
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: white;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--ocean-blue), var(--marine-green));
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-links a:hover {
+            color: var(--marine-green);
+            transform: translateX(10px);
+        }
+
+        .footer-copyright {
+            text-align: center;
+            padding-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .current-year {
+            color: var(--marine-green);
+            font-weight: 700;
+        }
+
+        /* ✨ АНИМАЦИИ И ЭФФЕКТЫ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 📱 АДАПТИВНОСТЬ */
+        @media (max-width: 1200px) {
+            .section-title, .year-title, .action-title {
+                font-size: 3rem;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .causes-grid {
+                grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 25, 41, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 40px;
+                gap: 30px;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.5s ease;
+                z-index: 9998;
+                border-bottom: 3px solid var(--marine-green);
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .nav-mobile-btn {
+                display: block;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle, .year-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .year-2026-section::before {
+                font-size: 30rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container, .nav-container {
+                padding: 0 25px;
+            }
+            
+            section {
+                padding: 100px 0;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title, .year-title, .action-title {
+                font-size: 2.2rem;
+            }
+            
+            .stats-grid, .year-goals, .action-steps {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .causes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .year-2026-section::before {
+                font-size: 20rem;
+            }
+            
+            .cause-stat-number {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .year-2026 {
+                font-size: 1.8rem;
+                padding: 8px 20px;
+            }
+            
+            .stat-value {
+                font-size: 3rem;
+            }
+            
+            .ocean-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .nav-logo-text {
+                font-size: 1.4rem;
+            }
+            
+            .year-2026-section::before {
+                font-size: 15rem;
+            }
+            
+            .cause-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .cause-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 🌊 ОКЕАН-НАВИГАЦИЯ -->
+    <nav class="ocean-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="nav-logo-icon">
+                    <i class="fas fa-water"></i>
+                </div>
+                <div class="nav-logo-text">OceanGuard</div>
+            </div>
+            
+            <button class="nav-mobile-btn" id="navMobileBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Главная</span>
+                </a>
+                <a href="#causes" class="nav-link">
+                    <i class="fas fa-industry"></i>
+                    <span>Причины</span>
+                </a>
+                <a href="#consequences" class="nav-link">
+                    <i class="fas fa-skull-crossbones"></i>
+                    <span>Последствия</span>
+                </a>
+                <a href="#year2026" class="nav-link">
+                    <i class="fas fa-calendar-star"></i>
+                    <span>2026 - Год решений</span>
+                </a>
+                <a href="#action" class="nav-link">
+                    <i class="fas fa-hands-helping"></i>
+                    <span>Действуй!</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🌟 ГЛАВНЫЙ ЭКРАН -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title reveal">
+                    Загрязнение <span>Мирового океана</span>
+                </h1>
+                <div class="year-2026">2026 - Год решений!</div>
+                <p class="hero-subtitle reveal">
+                    Каждую минуту в океан попадает грузовик пластика. К 2026 году ситуация станет критической. 
+                    Узнайте причины, последствия и как мы можем спасти наш океан.
+                </p>
+                
+                <a href="#causes" class="ocean-btn reveal">
+                    <i class="fas fa-binoculars"></i>
+                    <span>Узнать причины</span>
+                </a>
+                
+                <div class="stats-grid">
+                    <div class="stat-card reveal">
+                        <div class="stat-value">8 млн тонн</div>
+                        <div class="stat-label">Пластика ежегодно</div>
+                    </div>
+                    <div class="stat-card reveal">
+                        <div class="stat-value">1 млн</div>
+                        <div class="stat-label">Морских птиц гибнет</div>
+                    </div>
+                    <div class="stat-card reveal">
+                        <div class="stat-value">90%</div>
+                        <div class="stat-label">Кораллов погибнет к 2050</div>
+                    </div>
+                    <div class="stat-card reveal">
+                        <div class="stat-value">2050</div>
+                        <div class="stat-label">Пластика больше чем рыбы</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🎯 ПРИЧИНЫ ЗАГРЯЗНЕНИЯ (без фото, контент выровнен) -->
+    <section class="causes-section" id="causes">
+        <div class="container causes-container">
+            <h2 class="section-title">ОСНОВНЫЕ ПРИЧИНЫ ЗАГРЯЗНЕНИЯ</h2>
+            <div class="causes-grid">
+                <!-- ПЛАСТИК (без изображения) -->
+                <div class="cause-card cause-1 reveal">
+                    <div class="cause-content">
+                        <div class="cause-header">
+                            <div class="cause-icon">
+                                <i class="fas fa-trash"></i>
+                            </div>
+                            <div>
+                                <h3 class="cause-title">ПЛАСТИКОВОЕ ЗАГРЯЗНЕНИЕ</h3>
+                                <p style="color: rgba(0,0,0,0.7);">Одноразовый пластик - главный враг океана</p>
+                            </div>
+                        </div>
+                        
+                        <div class="cause-stats">
+                            <div class="cause-stat">
+                                <div class="cause-stat-number">40%</div>
+                                <div class="cause-stat-desc">Одноразовый</div>
+                            </div>
+                            <div class="cause-stat">
+                                <div class="cause-stat-number">500 лет</div>
+                                <div class="cause-stat-desc">Разлагается</div>
+                            </div>
+                            <div class="cause-stat">
+                                <div class="cause-stat-number">5 трлн</div>
+                                <div class="cause-stat-desc">Частиц</div>
+                            </div>
+                        </div>
+                        
+                        <ul class="cause-list">
+                            <li><i class="fas fa-exclamation-triangle"></i> <strong>Пакеты и упаковка:</strong> 1 трлн пакетов ежегодно</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> <strong>Бутылки:</strong> 1 млн бутылок/мин</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> <strong>Микропластик:</strong> в косметике и одежде</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> <strong>"Призрачные сети":</strong> продолжают убивать</li>
+                        </ul>
+                        
+                        <div class="impact-box">
+                            <strong style="color: var(--coral-red);">🐟 ВОЗДЕЙСТВИЕ:</strong>
+                            <p style="margin-top: 8px;">Животные принимают пластик за еду. Микропластик попадает в нашу пищу.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ПРОМЫШЛЕННЫЕ ОТХОДЫ (без изображения) -->
+                <div class="cause-card cause-2 reveal">
+                    <div class="cause-content">
+                        <div class="cause-header">
+                            <div class="cause-icon">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <div>
+                                <h3 class="cause-title">ПРОМЫШЛЕННЫЕ ОТХОДЫ</h3>
+                                <p style="color: rgba(0,0,0,0.7);">Химикаты и тяжелые металлы</p>
+                            </div>
+                        </div>
+                        
+                        <div class="cause-stats">
+                            <div class="cause-stat">
+                                <div class="cause-stat-number">70%</div>
+                                <div class="cause-stat-desc">От пром.загряз.</div>
+                            </div>
+                            <div class="cause-stat">
+                                <div class="cause-stat-number">300 млн т</div>
+                                <div class="cause-stat-desc">Химикатов/год</div>
+                            </div>
+                            <div class="cause-stat">
+                                <div class="cause-stat-number">Меркурий</div>
+                                <div class="cause-stat-desc">Главная угроза</div>
+                            </div>
+                        </div>
+                        
+                        <ul class="cause-list">
+                            <li><i class="fas fa-exclamation-triangle"></i> <strong>Тяжелые металлы:</strong> Ртуть, свинец, кадмий</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> <strong>Химикаты:</strong> Пестициды, ПХБ</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> <strong>Сточные воды:</strong> Неочищенные стоки</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> <strong>Тепловое загрязнение:</strong> Сброс нагретой воды</li>
+                        </ul>
+                        
+                        <div class="impact-box">
+                            <strong style="color: var(--coral-red);">☢️ ВОЗДЕЙСТВИЕ:</strong>
+                            <p style="margin-top: 8px;">Накопление токсинов, мутации, попадание в пищу человека.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- НЕФТЯНЫЕ РАЗЛИВЫ (без изображения) -->
+                <div class="cause-card cause-3 reveal">
+                    <div class="cause-content">
+                        <div class="cause-header">
+                            <div class="cause-icon">
+                                <i class="fas fa-oil-can"></i>
+                            </div>
+                            <div>
+                                <h3 class="cause-title">НЕФТЯНЫЕ РАЗЛИВЫ</h3>
+                                <p style="color: rgba(0,0,0,0.7);">Катастрофы танкеров и платформ</p>
+                            </div>
+                        </div>
+                        
+                        <div class="cause-stats">
+                            <div class="cause-stat">
+                                <div class="cause-stat-number">1.3 млн т</div>
+                                <div class="cause-stat-desc">Нефти/год</div>
+                            </div>
+                            <div class="cause-stat">
+                                <div class="cause-stat-number">20 лет</div>
+                                <div class="cause-stat-desc">Восстановление</div>
+                            </div>
+                            <div class="cause-stat">
+                                <div class="cause-stat-number">Deepwater</div>
+                                <div class="cause-stat-desc">Крупнейшая авария</div>
+                            </div>
+                        </div>
+                        
+                        <ul class="cause-list">
+                            <li><i class="fas fa-exclamation-triangle"></i> <strong>Аварии танкеров:</strong> Разливы при транспортировке</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> <strong>Платформы:</strong> Утечки при добыче</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> <strong>Промывка танкеров:</strong> Незаконный сброс</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> <strong>Трубопроводы:</strong> Коррозия и разрывы</li>
+                        </ul>
+                        
+                        <div class="impact-box">
+                            <strong style="color: var(--coral-red);">🕊️ ВОЗДЕЙСТВИЕ:</strong>
+                            <p style="margin-top: 8px;">Гибель птиц и животных, разрушение экосистем на десятилетия.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌍 ПОСЛЕДСТВИЯ -->
+    <section class="consequences-section" id="consequences">
+        <div class="container">
+            <h2 class="section-title">КАТАСТРОФИЧЕСКИЕ ПОСЛЕДСТВИЯ</h2>
+            <div class="consequences-grid">
+                <div class="consequence-card reveal">
+                    <div class="consequence-icon">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <h3 class="consequence-title">ГИБЕЛЬ МОРСКОЙ ЖИЗНИ</h3>
+                    <p class="consequence-desc">Более 100 000 морских млекопитающих и 1 миллион морских птиц погибают ежегодно от пластика. Животные запутываются в отходах или принимают пластик за пищу.</p>
+                </div>
+                
+                <div class="consequence-card reveal">
+                    <div class="consequence-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="consequence-title">ОПАСНОСТЬ ДЛЯ ЧЕЛОВЕКА</h3>
+                    <p class="consequence-desc">Токсины и микропластик попадают в пищевую цепь. Каждый человек съедает около 5 грамм пластика в неделю — это вес кредитной карты.</p>
+                </div>
+                
+                <div class="consequence-card reveal">
+                    <div class="consequence-icon">
+                        <i class="fas fa-temperature-high"></i>
+                    </div>
+                    <h3 class="consequence-title">РАЗРУШЕНИЕ ЭКОСИСТЕМ</h3>
+                    <p class="consequence-desc">Коралловые рифы — дома для 25% морской жизни — обесцвечиваются и умирают. Кислотность океана выросла на 30% с начала промышленной революции.</p>
+                </div>
+                
+                <div class="consequence-card reveal">
+                    <div class="consequence-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3 class="consequence-title">ИЗМЕНЕНИЕ КЛИМАТА</h3>
+                    <p class="consequence-desc">Океан поглощает 30% CO2 и 90% избыточного тепла. Загрязнение снижает эту способность, ускоряя глобальное потепление.</p>
+                </div>
+                
+                <div class="consequence-card reveal">
+                    <div class="consequence-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3 class="consequence-title">ЭКОНОМИЧЕСКИЕ ПОТЕРИ</h3>
+                    <p class="consequence-desc">Ущерб морским экосистемам оценивается в $8 млрд ежегодно. Туризм, рыболовство и судоходство несут колоссальные убытки.</p>
+                </div>
+                
+                <div class="consequence-card reveal">
+                    <div class="consequence-icon">
+                        <i class="fas fa-prescription-bottle"></i>
+                    </div>
+                    <h3 class="consequence-title">МЕДИЦИНСКИЕ УГРОЗЫ</h3>
+                    <p class="consequence-desc">Пластик становится средой для патогенных бактерий. Химические загрязнители вызывают рак, бесплодие и неврологические заболевания.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🎯 2026 - ГОД РЕШЕНИЙ -->
+    <section class="year-2026-section" id="year2026">
+        <div class="container">
+            <div class="year-content">
+                <h2 class="year-title">2026 - ГОД ПЕРЕЛОМА</h2>
+                <p class="year-subtitle">Цели устойчивого развития ООН. Ключевые цели к 2026 году:</p>
+                
+                <div class="year-goals">
+                    <div class="goal-card reveal">
+                        <div class="goal-number">01</div>
+                        <h3 class="goal-title">Сокращение пластика на 50%</h3>
+                        <p class="goal-desc">Запрет одноразового пластика, переход на биоразлагаемые материалы, развитие переработки.</p>
+                    </div>
+                    
+                    <div class="goal-card reveal">
+                        <div class="goal-number">02</div>
+                        <h3 class="goal-title">30% охраняемых морских территорий</h3>
+                        <p class="goal-desc">Создание морских заповедников для восстановления экосистем и биоразнообразия.</p>
+                    </div>
+                    
+                    <div class="goal-card reveal">
+                        <div class="goal-number">03</div>
+                        <h3 class="goal-title">Нулевой сброс промышленных отходов</h3>
+                        <p class="goal-desc">Внедрение замкнутых циклов производства и современных очистных технологий.</p>
+                    </div>
+                    
+                    <div class="goal-card reveal">
+                        <div class="goal-number">04</div>
+                        <h3 class="goal-title">Восстановление коралловых рифов</h3>
+                        <p class="goal-desc">Глобальная программа по сохранению и восстановлению коралловых экосистем.</p>
+                    </div>
+                </div>
+                
+                <div class="impact-box" style="max-width: 800px; margin: 0 auto; background: rgba(0,119,182,0.05);">
+                    <strong style="color: var(--ocean-blue); font-size: 1.2rem;">
+                        <i class="fas fa-bullhorn"></i> НАШ ПЛАН К 2026 ГОДУ:
+                    </strong>
+                    <p style="margin-top: 10px; text-align: left;">
+                        1. <strong>2024:</strong> Глобальный запрет одноразового пластика в 50 странах<br>
+                        2. <strong>2025:</strong> Внедрение AI-систем для мониторинга загрязнений<br>
+                        3. <strong>2026:</strong> Достижение целей Парижского соглашения по океанам<br>
+                        4. <strong>2026:</strong> Запуск международного фонда очистки океана ($10 млрд)<br>
+                        5. <strong>2026:</strong> Первая глобальная конференция "Океан без пластика"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📞 ПРИЗЫВ К ДЕЙСТВИЮ -->
+    <section class="action-section" id="action">
+        <div class="container">
+            <div class="action-content">
+                <h2 class="action-title">ВРЕМЯ ДЕЙСТВОВАТЬ!</h2>
+                <p class="action-subtitle">Каждый из нас может внести вклад в спасение океана. Начните сегодня!</p>
+                
+                <div class="action-steps">
+                    <div class="step-card reveal">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Сократите пластик</h3>
+                        <p class="step-desc">Используйте многоразовые сумки, бутылки, откажитесь от одноразовой посуды</p>
+                    </div>
+                    
+                    <div class="step-card reveal">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Участвуйте в уборках</h3>
+                        <p class="step-desc">Присоединяйтесь к местным инициативам по уборке пляжей и берегов</p>
+                    </div>
+                    
+                    <div class="step-card reveal">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Распространяйте информацию</h3>
+                        <p class="step-desc">Рассказывайте друзьям и в соцсетях о проблеме загрязнения океана</p>
+                    </div>
+                    
+                    <div class="step-card reveal">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Поддерживайте организации</h3>
+                        <p class="step-desc">Помогайте фондам, которые борются за чистоту океанов</p>
+                    </div>
+                </div>
+                
+                <a href="#home" class="ocean-btn reveal" style="background: linear-gradient(135deg, var(--coral-red), #ff9e00);">
+                    <i class="fas fa-hands-helping"></i>
+                    <span>Стать волонтером</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 👣 ФУТЕР (без соцсетей, ссылки на Википедию) -->
+    <footer class="ocean-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">OceanGuard 2026</div>
+                    <p class="footer-desc">
+                        Проект посвящен борьбе с загрязнением Мирового океана. 
+                        Наша цель — к 2026 году существенно сократить пластиковое загрязнение и восстановить морские экосистемы.
+                    </p>
+                    <!-- Социальные сети удалены -->
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">НАВИГАЦИЯ</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Главная</a></li>
+                        <li><a href="#causes"><i class="fas fa-chevron-right"></i> Причины загрязнения</a></li>
+                        <li><a href="#consequences"><i class="fas fa-chevron-right"></i> Последствия</a></li>
+                        <li><a href="#year2026"><i class="fas fa-chevron-right"></i> 2026 - Год решений</a></li>
+                        <li><a href="#action"><i class="fas fa-chevron-right"></i> Призыв к действию</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">ВИКИПЕДИЯ</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://ru.wikipedia.org/wiki/Загрязнение_океанов" target="_blank"><i class="fas fa-external-link-alt"></i> Загрязнение океанов</a></li>
+                        <li><a href="https://ru.wikipedia.org/wiki/Пластиковое_загрязнение" target="_blank"><i class="fas fa-external-link-alt"></i> Пластиковое загрязнение</a></li>
+                        <li><a href="https://ru.wikipedia.org/wiki/Нефтяное_загрязнение" target="_blank"><i class="fas fa-external-link-alt"></i> Нефтяное загрязнение</a></li>
+                        <li><a href="https://ru.wikipedia.org/wiki/Мировой_океан" target="_blank"><i class="fas fa-external-link-alt"></i> Мировой океан</a></li>
+                        <li><a href="https://ru.wikipedia.org/wiki/Коралловые_рифы" target="_blank"><i class="fas fa-external-link-alt"></i> Коралловые рифы</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>© <span class="current-year">2024-2026</span> Проект "Загрязнение Мирового океана: причины и последствия". Все данные основаны на исследованиях ООН и ведущих экологических организаций.</p>
+                <p style="margin-top: 15px;">Проект актуален на <span class="current-year">2026</span> год — ключевой год для достижения целей устойчивого развития.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 🌊 ИНТЕРАКТИВНЫЙ СКРИПТ
+        document.addEventListener('DOMContentLoaded', function() {
+            // Мобильное меню
+            const navMobileBtn = document.getElementById('navMobileBtn');
+            const navMenu = document.getElementById('navMenu');
+            
+            navMobileBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navMobileBtn.innerHTML = navMenu.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Плавная прокрутка
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        if (navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            navMobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                        }
+                        
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Анимация появления при скролле
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        const delay = Math.random() * 500;
+                        entry.target.style.transitionDelay = `${delay}ms`;
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            });
+            
+            revealElements.forEach(el => revealObserver.observe(el));
+            
+            // Динамическая статистика
+            function animateValue(element, start, end, duration, suffix = '') {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const value = Math.floor(progress * (end - start) + start);
+                    element.textContent = value + suffix;
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+            
+            setTimeout(() => {
+                const statValues = document.querySelectorAll('.stat-value');
+                if (statValues.length >= 4) {
+                    animateValue(statValues[0], 0, 8, 2000, ' млн тонн');
+                    animateValue(statValues[1], 0, 1, 2000, ' млн');
+                    animateValue(statValues[2], 0, 90, 2000, '%');
+                    animateValue(statValues[3], 0, 2050, 2000, '');
+                }
+            }, 1000);
+            
+            document.querySelectorAll('.cause-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const causeTitle = this.querySelector('.cause-title').textContent;
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 300);
+                    console.log(`🌊 Информация о причине: ${causeTitle}`);
+                });
+            });
+            
+            document.querySelectorAll('.consequence-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('.consequence-icon');
+                    icon.style.transform = 'rotate(360deg) scale(1.1)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('.consequence-icon');
+                    icon.style.transform = 'rotate(0) scale(1)';
+                });
+            });
+            
+            document.querySelector('.current-year').textContent = '2024-2026';
+            
+            const heroTitle = document.querySelector('.hero-title');
+            const originalText = heroTitle.textContent;
+            heroTitle.textContent = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < originalText.length) {
+                    heroTitle.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            setTimeout(typeWriter, 1000);
+        });
+    </script>
+</body>
+</html>
