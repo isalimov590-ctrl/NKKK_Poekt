@@ -1,0 +1,1565 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Крипто и экономика РФ — обзор рынка, регулирования, комплаенса и майнинга</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root{
+      --bg:#070A10;
+      --bg2:#0B1020;
+      --surface:rgba(255,255,255,.06);
+      --surface2:rgba(255,255,255,.09);
+      --stroke:rgba(255,255,255,.10);
+      --stroke2:rgba(255,255,255,.16);
+      --text:#F2F6FF;
+      --muted:rgba(242,246,255,.72);
+      --muted2:rgba(242,246,255,.55);
+      --brand:#00D4FF;
+      --brand2:#7C3AED;
+      --brand3:#22C55E;
+      --danger:#FF3B7D;
+      --shadow:0 18px 55px rgba(0,0,0,.55);
+      --shadow2:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --radius2:26px;
+      --max:1200px;
+      --pad:24px;
+      --ease:cubic-bezier(.22,.61,.36,1);
+      --ease2:cubic-bezier(.16,1,.3,1);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 700px at 15% 20%, rgba(0,212,255,.22), transparent 55%),
+        radial-gradient(900px 700px at 80% 15%, rgba(124,58,237,.18), transparent 55%),
+        radial-gradient(900px 700px at 65% 85%, rgba(34,197,94,.14), transparent 55%),
+        radial-gradient(1200px 900px at 50% 110%, rgba(255,59,125,.12), transparent 60%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      overflow-x:hidden;
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{color:inherit}
+    .container{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
+    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+    .bg-grid{
+      position:fixed;
+      inset:-2px;
+      pointer-events:none;
+      opacity:.6;
+      background:
+        linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size:70px 70px;
+      mask-image:radial-gradient(600px 420px at 50% 20%, rgba(0,0,0,1), rgba(0,0,0,0));
+      filter:blur(.2px);
+      z-index:-2;
+    }
+
+    .grain{
+      position:fixed;
+      inset:-20%;
+      pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+      background-size:260px 260px;
+      opacity:.12;
+      mix-blend-mode:overlay;
+      z-index:-1;
+      transform:translateZ(0);
+      animation:grain 10s steps(8) infinite;
+    }
+
+    @keyframes grain{
+      0%{transform:translate(0,0)}
+      10%{transform:translate(-2%,-3%)}
+      20%{transform:translate(-5%,2%)}
+      30%{transform:translate(3%,-5%)}
+      40%{transform:translate(-2%,6%)}
+      50%{transform:translate(-6%,-2%)}
+      60%{transform:translate(6%,0)}
+      70%{transform:translate(0,6%)}
+      80%{transform:translate(4%,4%)}
+      90%{transform:translate(-4%,3%)}
+      100%{transform:translate(0,0)}
+    }
+
+    .header{
+      position:fixed;
+      top:0; left:0; right:0;
+      z-index:50;
+      backdrop-filter:blur(14px);
+      background:rgba(7,10,16,.62);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      transition:background .35s var(--ease2), border-color .35s var(--ease2), box-shadow .35s var(--ease2);
+    }
+    .header.is-scrolled{
+      background:rgba(7,10,16,.78);
+      border-bottom-color:rgba(255,255,255,.10);
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    .header__inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+    }
+    .brand__mark{
+      width:40px;height:40px;
+      border-radius:14px;
+      display:grid; place-items:center;
+      background:linear-gradient(135deg, rgba(0,212,255,.22), rgba(124,58,237,.22));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 12px 30px rgba(0,0,0,.35);
+    }
+    .brand__name{
+      font-family:"Space Grotesk", Inter, system-ui;
+      font-weight:700;
+      letter-spacing:.2px;
+      font-size:1.05rem;
+    }
+    .brand__tag{
+      display:block;
+      color:var(--muted2);
+      font-size:.86rem;
+      margin-top:1px;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+    .nav a{
+      text-decoration:none;
+      color:var(--muted);
+      font-weight:800;
+      font-size:.95rem;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid transparent;
+      transition:transform .25s var(--ease2), background .25s var(--ease2), color .25s var(--ease2), border-color .25s var(--ease2);
+      outline:none;
+      position:relative;
+    }
+    .nav a::after{
+      content:"";
+      position:absolute;
+      left:12px; right:12px; bottom:6px;
+      height:2px; border-radius:99px;
+      background:linear-gradient(90deg, rgba(0,212,255,.9), rgba(124,58,237,.9));
+      transform:scaleX(0);
+      transform-origin:left;
+      opacity:.85;
+      transition:transform .35s var(--ease2);
+    }
+    .nav a:hover{background:rgba(255,255,255,.06); color:var(--text); transform:translateY(-1px)}
+    .nav a:hover::after{transform:scaleX(1)}
+    .nav a:focus-visible{box-shadow:0 0 0 3px rgba(0,212,255,.22)}
+    .nav a.is-active{background:rgba(0,212,255,.10); color:var(--text); border-color:rgba(0,212,255,.18)}
+    .nav a.is-active::after{transform:scaleX(1)}
+
+    .nav-toggle{
+      display:none;
+      align-items:center;
+      justify-content:center;
+      width:44px;height:44px;
+      border-radius:14px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--text);
+      cursor:pointer;
+    }
+
+    .hero{padding:120px 0 34px}
+    .hero__grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:26px;
+      align-items:start;
+    }
+
+    .pillrow{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:18px}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--muted);
+      font-weight:700;
+      font-size:.92rem;
+    }
+    .dot{
+      width:9px;height:9px;border-radius:99px;
+      background:linear-gradient(90deg, var(--brand), var(--brand2));
+      box-shadow:0 0 0 5px rgba(0,212,255,.10);
+    }
+
+    .hero h1{
+      margin:0 0 14px;
+      font-family:"Space Grotesk", Inter, system-ui;
+      font-weight:700;
+      font-size:clamp(2.1rem, 3.6vw, 3.55rem);
+      line-height:1.06;
+      letter-spacing:-.6px;
+    }
+    .hero__lead{margin:0 0 20px; color:var(--muted); font-size:1.05rem; max-width:62ch}
+    .hero__note{margin:0 0 26px; color:var(--muted2); font-size:.92rem}
+    .actions{display:flex; flex-wrap:wrap; gap:12px}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:900;
+      text-decoration:none;
+      cursor:pointer;
+      position:relative;
+      overflow:hidden;
+      transform:translateZ(0);
+      transition:transform .25s var(--ease2), background .25s var(--ease2), border-color .25s var(--ease2), box-shadow .25s var(--ease2), color .25s var(--ease2);
+    }
+    .btn::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:radial-gradient(520px 150px at 30% -10%, rgba(255,255,255,.28), transparent 60%);
+      opacity:0;
+      transition:opacity .25s var(--ease2);
+      pointer-events:none;
+    }
+    .btn:hover{transform:translateY(-2px); background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.18); box-shadow:0 14px 35px rgba(0,0,0,.35)}
+    .btn:hover::before{opacity:1}
+    .btn:active{transform:translateY(-1px)}
+    .btn:focus-visible{box-shadow:0 0 0 3px rgba(0,212,255,.22), 0 14px 35px rgba(0,0,0,.35)}
+    .btn--primary{
+      border-color:rgba(0,212,255,.22);
+      background:linear-gradient(135deg, rgba(0,212,255,.22), rgba(124,58,237,.18), rgba(0,212,255,.14));
+      background-size:180% 180%;
+      background-position:0% 0%;
+      box-shadow:0 18px 55px rgba(0,212,255,.12);
+    }
+    .btn--primary:hover{border-color:rgba(0,212,255,.38); background-position:100% 100%; box-shadow:0 22px 70px rgba(0,212,255,.16)}
+
+    .panel{
+      border-radius:var(--radius2);
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow2);
+      overflow:hidden;
+      position:relative;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .panel::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(600px 420px at 20% 10%, rgba(0,212,255,.18), transparent 60%),
+        radial-gradient(520px 380px at 80% 20%, rgba(124,58,237,.16), transparent 60%),
+        radial-gradient(520px 380px at 55% 90%, rgba(34,197,94,.12), transparent 60%);
+      opacity:.8;
+      pointer-events:none;
+    }
+    .panel__inner{position:relative; padding:18px}
+
+    .ticker{
+      display:flex;
+      gap:12px;
+      overflow:hidden;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(7,10,16,.35);
+    }
+    .ticker__track{
+      display:flex;
+      gap:12px;
+      white-space:nowrap;
+      padding:12px;
+      animation:ticker 26s linear infinite;
+    }
+    .tick{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:9px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--muted);
+      font-weight:800;
+      font-size:.92rem;
+    }
+    .tick b{color:var(--text)}
+    .tick .up{color:rgba(34,197,94,.92)}
+    .tick .down{color:rgba(255,59,125,.92)}
+    @keyframes ticker{0%{transform:translateX(0)} 100%{transform:translateX(-50%)}}
+
+    .notice{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:12px 14px;
+      border-radius:16px;
+      background:rgba(255,59,125,.08);
+      border:1px solid rgba(255,59,125,.18);
+      color:rgba(255,255,255,.86);
+      margin-top:14px;
+    }
+    .notice i{margin-top:2px}
+
+    .section{padding:56px 0}
+    .section[id]{scroll-margin-top:96px}
+    .section__head{display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:18px}
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      font-weight:900; letter-spacing:.18em; text-transform:uppercase;
+      color:rgba(0,212,255,.85);
+      font-size:.78rem;
+    }
+    .kicker::before{content:""; width:10px; height:10px; border-radius:99px; background:linear-gradient(90deg, var(--brand), var(--brand2))}
+    .section__title{
+      margin:6px 0 0;
+      font-family:"Space Grotesk", Inter, system-ui;
+      font-weight:700;
+      font-size:clamp(1.55rem, 2.3vw, 2.25rem);
+      letter-spacing:-.3px;
+    }
+    .section__desc{margin:0; color:var(--muted); max-width:78ch}
+
+    .grid{display:grid; grid-template-columns:repeat(12, 1fr); gap:16px; margin-top:16px}
+
+    .card{
+      grid-column:span 4;
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow2);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+      transform:translateY(12px);
+      opacity:0;
+      filter:blur(10px);
+      will-change:transform, opacity, filter;
+      transition:transform .55s var(--ease2), opacity .55s var(--ease2), filter .55s var(--ease2), border-color .25s var(--ease2), box-shadow .25s var(--ease2);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(520px 240px at 10% 0%, rgba(0,212,255,.18), transparent 60%),
+        radial-gradient(520px 240px at 90% 10%, rgba(124,58,237,.16), transparent 60%),
+        radial-gradient(520px 240px at 50% 100%, rgba(34,197,94,.12), transparent 65%);
+      opacity:0;
+      transition:opacity .35s var(--ease2);
+      pointer-events:none;
+      z-index:0;
+    }
+    .card > *{position:relative; z-index:1}
+    .card.is-visible{transform:translateY(0); opacity:1; filter:blur(0px)}
+    .card:hover{border-color:rgba(0,212,255,.22); box-shadow:0 22px 60px rgba(0,0,0,.45); transform:translateY(-3px)}
+    .card:hover::before{opacity:1}
+
+    .card__top{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px}
+    .icon{
+      width:42px;height:42px;border-radius:14px;
+      display:grid; place-items:center;
+      background:rgba(0,212,255,.10);
+      border:1px solid rgba(0,212,255,.18);
+      color:rgba(0,212,255,.95);
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
+      color:var(--muted);
+      font-size:.86rem;
+      font-weight:800;
+    }
+    .badge--risk{border-color:rgba(255,59,125,.22); background:rgba(255,59,125,.08); color:rgba(255,255,255,.86)}
+    .badge--ok{border-color:rgba(34,197,94,.22); background:rgba(34,197,94,.08); color:rgba(255,255,255,.86)}
+    .card h3{margin:0 0 8px; font-size:1.06rem; letter-spacing:-.2px}
+    .card p{margin:0 0 12px; color:var(--muted2)}
+
+    .list{display:grid; gap:10px; margin:0; padding:0; list-style:none; color:var(--muted)}
+    .list li{display:flex; gap:10px}
+    .list i{margin-top:3px; color:rgba(34,197,94,.92)}
+
+    .split{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px}
+    .box{
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      padding:18px;
+      box-shadow:var(--shadow2);
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+      transform:translateY(12px);
+      opacity:0;
+      filter:blur(10px);
+      will-change:transform, opacity, filter;
+      transition:transform .55s var(--ease2), opacity .55s var(--ease2), filter .55s var(--ease2), border-color .25s var(--ease2), box-shadow .25s var(--ease2);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .box::before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:radial-gradient(520px 220px at 25% 0%, rgba(0,212,255,.14), transparent 60%);
+      opacity:0;
+      transition:opacity .35s var(--ease2);
+      pointer-events:none;
+      z-index:0;
+    }
+    .box > *{position:relative; z-index:1}
+    .box.is-visible{transform:translateY(0); opacity:1; filter:blur(0px)}
+    .box:hover{border-color:rgba(0,212,255,.16); box-shadow:0 18px 55px rgba(0,0,0,.40); transform:translateY(-3px)}
+    .box:hover::before{opacity:1}
+    .box h4{margin:0 0 10px; font-size:1.02rem}
+    .box p{margin:0; color:var(--muted2)}
+
+    .chart{
+      margin-top:16px;
+      border-radius:var(--radius2);
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .chart__inner{padding:18px}
+    .chart__title{margin:0 0 4px; font-size:1.06rem}
+    .chart__sub{margin:0 0 14px; color:var(--muted2); font-size:.95rem}
+    .bars{display:grid; gap:10px; margin-top:10px}
+    .bar{
+      display:grid;
+      grid-template-columns:180px 1fr 90px;
+      gap:12px;
+      align-items:center;
+      padding:10px 12px;
+      border-radius:16px;
+      background:rgba(7,10,16,.35);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .bar__label{color:var(--muted); font-weight:800; font-size:.95rem}
+    .bar__meter{
+      height:12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      overflow:hidden;
+      position:relative;
+    }
+    .bar__fill{
+      height:100%;
+      width:0%;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--brand), var(--brand2));
+      box-shadow:0 0 0 6px rgba(0,212,255,.08);
+      transition:width 1.1s cubic-bezier(.22,.61,.36,1);
+    }
+    .bar__val{color:var(--muted); font-weight:900; text-align:right}
+
+    .timeline{
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:16px;
+      margin-top:16px;
+    }
+    .event{
+      grid-column:span 4;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.06);
+      box-shadow:var(--shadow2);
+      padding:16px;
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+      transform:translateY(12px);
+      opacity:0;
+      filter:blur(10px);
+      transition:transform .55s var(--ease2), opacity .55s var(--ease2), filter .55s var(--ease2), border-color .25s var(--ease2), box-shadow .25s var(--ease2);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .event > *{position:relative; z-index:1}
+    .event::before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:radial-gradient(520px 220px at 20% 0%, rgba(124,58,237,.14), transparent 60%);
+      opacity:.0;
+      transition:opacity .35s var(--ease2);
+      pointer-events:none;
+      z-index:0;
+    }
+    .event.is-visible{transform:translateY(0); opacity:1; filter:blur(0)}
+    .event:hover{border-color:rgba(0,212,255,.18); box-shadow:0 18px 55px rgba(0,0,0,.40); transform:translateY(-3px)}
+    .event:hover::before{opacity:1}
+    .event__y{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      color:rgba(0,212,255,.90);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:.78rem;
+    }
+    .event__y::before{content:""; width:10px;height:10px;border-radius:99px;background:linear-gradient(90deg, var(--brand), var(--brand2))}
+    .event h3{margin:10px 0 8px; font-size:1.06rem}
+    .event p{margin:0; color:var(--muted2)}
+    .event a{color:rgba(0,212,255,.92); font-weight:900; text-decoration:none}
+    .event a:hover{text-decoration:underline}
+
+    .checklist{display:grid; gap:10px; margin-top:12px}
+    .check{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:12px 14px;
+      border-radius:16px;
+      background:rgba(7,10,16,.35);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .check input{margin-top:3px; accent-color:#00D4FF}
+    .check b{display:block}
+    .check span{display:block; color:var(--muted2); margin-top:2px}
+
+    .progress{
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:16px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--muted);
+      font-weight:900;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+    }
+    .progress__meter{
+      flex:1;
+      height:10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .progress__fill{
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg, var(--brand), var(--brand2));
+      transition:width .35s var(--ease2);
+    }
+
+    .links{display:grid; gap:10px; margin:0; padding:0; list-style:none}
+    .links a{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:12px 14px;
+      border-radius:16px;
+      text-decoration:none;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--muted);
+      font-weight:900;
+      transition:transform .15s ease, border-color .2s ease, color .2s ease;
+    }
+    .links a:hover{transform:translateY(-1px); border-color:rgba(0,212,255,.18); color:var(--text)}
+
+    .faq{margin-top:16px}
+    details{
+      border-radius:18px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      padding:12px 14px;
+      box-shadow:var(--shadow2);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transform:translateY(12px);
+      opacity:0;
+      filter:blur(10px);
+      transition:transform .55s var(--ease2), opacity .55s var(--ease2), filter .55s var(--ease2);
+    }
+    details.is-visible{transform:translateY(0); opacity:1; filter:blur(0)}
+    details + details{margin-top:10px}
+    summary{
+      cursor:pointer;
+      list-style:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      font-weight:900;
+      color:var(--text);
+    }
+    summary::-webkit-details-marker{display:none}
+    summary .chev{transition:transform .2s ease; color:var(--muted)}
+    details[open] summary .chev{transform:rotate(180deg)}
+    details p{margin:10px 0 0; color:var(--muted2)}
+
+    .footer{
+      margin-top:40px;
+      padding:36px 0 28px;
+      border-top:1px solid rgba(255,255,255,.08);
+      background:rgba(7,10,16,.35);
+      backdrop-filter:blur(14px);
+    }
+
+    .to-top{display:inline-flex; align-items:center; gap:10px; justify-content:center}
+
+    @media (max-width: 980px){
+      .hero__grid{grid-template-columns:1fr}
+      .grid{gap:12px}
+      .card{grid-column:span 6}
+      .split{grid-template-columns:1fr}
+      .bar{grid-template-columns:1fr; gap:8px}
+      .bar__val{text-align:left}
+      .event{grid-column:span 6}
+    }
+    @media (max-width: 720px){
+      :root{--pad:18px}
+      .nav-toggle{display:inline-flex}
+      .nav{
+        position:absolute;
+        top:64px;
+        right:var(--pad);
+        left:var(--pad);
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        gap:8px;
+        padding:12px;
+        border-radius:18px;
+        background:rgba(7,10,16,.86);
+        border:1px solid rgba(255,255,255,.10);
+        box-shadow:var(--shadow);
+        transform: translateY(-8px) scale(.985);
+        opacity:0;
+        max-height:0;
+        overflow:hidden;
+        pointer-events:none;
+      }
+      .nav.is-open{
+        transform: translateY(0) scale(1);
+        opacity:1;
+        max-height:560px;
+        pointer-events:auto;
+      }
+      .nav a{padding:12px 14px}
+      .card{grid-column:span 12}
+      .event{grid-column:span 12}
+    }
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      .ticker__track{animation:none}
+      .card,.box,.event,details{transition:none; transform:none; opacity:1; filter:none}
+      .bar__fill{transition:none}
+      .grain{animation:none}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="#home" aria-label="На главную">
+        <div class="brand__mark" aria-hidden="true"><i class="fa-solid fa-bitcoin-sign"></i></div>
+        <div>
+          <div class="brand__name">CryptoРоссия</div>
+          <span class="brand__tag">карта темы + источники</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-controls="nav" aria-expanded="false" aria-label="Открыть меню">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav class="nav" id="nav">
+        <a href="#overview">Обзор</a>
+        <a href="#impact">Экономика</a>
+        <a href="#reg">Право</a>
+        <a href="#compliance">AML/комплаенс</a>
+        <a href="#tax">Налоги</a>
+        <a href="#mining">Майнинг</a>
+        <a href="#timeline">Хронология</a>
+        <a href="#glossary">Термины</a>
+        <a href="#faq">FAQ</a>
+        <a href="#sources">Источники</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home" class="hero">
+    <div class="container">
+      <div class="hero__grid">
+        <div>
+          <div class="pillrow">
+            <span class="pill"><span class="dot" aria-hidden="true"></span>Без воды • Ссылки на документы • Без инвестсовета</span>
+            <span class="pill"><i class="fa-regular fa-clock" aria-hidden="true"></i>Обновление: по мере правок</span>
+          </div>
+
+          <h1>Крипто в России: что важно для экономики, бизнеса и людей</h1>
+          <p class="hero__lead">
+            Это “карта темы”: где цифровые активы пересекаются с экономикой РФ, где рождают риски, и где лежат первоисточники
+            (законы, регуляторы, AML‑стандарты).
+          </p>
+          <p class="hero__note">
+            Индикаторы и диаграммы — визуальные ориентиры, не биржевые котировки и не прогноз.
+            Для решений используйте первоисточники и консультации специалистов.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn--primary" href="#overview"><i class="fa-solid fa-compass"></i>Открыть обзор</a>
+            <a class="btn" href="#sources"><i class="fa-solid fa-link"></i>Перейти к источникам</a>
+          </div>
+
+          <div class="notice" role="note" aria-label="Дисклеймер">
+            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+            <div>
+              <b>Важно:</b> на странице нет призывов “купить/продать”. Фокус — право, риски, инфраструктура, методика “как проверять”.
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel__inner">
+            <div class="ticker" role="region" aria-label="Демо‑индикаторы">
+              <div class="ticker__track" id="tickerTrack">
+                <div class="tick"><i class="fa-brands fa-bitcoin" aria-hidden="true"></i>BTC <b id="btcPrice">₽—</b> <span class="up" id="btcDelta">+0.0%</span></div>
+                <div class="tick"><i class="fa-brands fa-ethereum" aria-hidden="true"></i>ETH <b id="ethPrice">₽—</b> <span class="down" id="ethDelta">-0.0%</span></div>
+                <div class="tick"><i class="fa-solid fa-gavel" aria-hidden="true"></i>Статус: <b>регулируется</b></div>
+                <div class="tick"><i class="fa-solid fa-shield" aria-hidden="true"></i>Фокус: <b>AML/СFT</b></div>
+                <div class="tick"><i class="fa-solid fa-bolt" aria-hidden="true"></i>Майнинг: <b>энергия</b></div>
+                <div class="tick"><i class="fa-solid fa-globe" aria-hidden="true"></i>Расчёты: <b>точечно</b></div>
+
+                <div class="tick"><i class="fa-brands fa-bitcoin" aria-hidden="true"></i>BTC <b>₽—</b> <span class="up">+0.0%</span></div>
+                <div class="tick"><i class="fa-brands fa-ethereum" aria-hidden="true"></i>ETH <b>₽—</b> <span class="down">-0.0%</span></div>
+                <div class="tick"><i class="fa-solid fa-gavel" aria-hidden="true"></i>Статус: <b>регулируется</b></div>
+                <div class="tick"><i class="fa-solid fa-shield" aria-hidden="true"></i>Фокус: <b>AML/СFT</b></div>
+                <div class="tick"><i class="fa-solid fa-bolt" aria-hidden="true"></i>Майнинг: <b>энергия</b></div>
+                <div class="tick"><i class="fa-solid fa-globe" aria-hidden="true"></i>Расчёты: <b>точечно</b></div>
+              </div>
+            </div>
+
+            <div style="margin-top:14px" class="pill">
+              <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+              Данные в бегущей строке — демо (не биржевые котировки)
+            </div>
+
+            <div class="chart" style="margin-top:14px">
+              <div class="chart__inner">
+                <p class="chart__title">Ключевые “правильные” выводы</p>
+                <p class="chart__sub">Коротко, чтобы можно было вставить в слайд.</p>
+                <ul class="list" style="margin-top:10px">
+                  <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>ЦФА ≠ криптовалюта: это разные контуры по праву и рискам.</span></li>
+                  <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Главный риск — мошенничество/безопасность + комплаенс (AML/санкции).</span></li>
+                  <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Майнинг влияет на экономику через энергетику и инфраструктуру.</span></li>
+                  <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Любые цифры должны иметь источник, дату и методику.</span></li>
+                </ul>
+                <div style="margin-top:12px" class="actions">
+                  <a class="btn" href="#timeline"><i class="fa-solid fa-clock-rotate-left"></i>Хронология</a>
+                  <a class="btn" href="#glossary"><i class="fa-solid fa-book"></i>Термины</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <section class="section" id="overview">
+        <div class="section__head">
+          <div>
+            <div class="kicker">карта темы</div>
+            <h2 class="section__title">9 блоков, которые дают “полную картину”</h2>
+          </div>
+          <p class="section__desc">
+            Используй карточки как структуру доклада: тезис → последствия → что проверить в первоисточниках.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></div>
+              <span class="badge badge--ok"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>базис</span>
+            </div>
+            <h3>1) Что именно “крипто” в РФ</h3>
+            <p>Разделяй термины: цифровая валюта, ЦФА, токенизация прав, операторы/инфраструктура.</p>
+            <ul class="list">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>ЦФА — регулируемый контур цифровых прав.</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Цифровая валюта — иной риск‑профиль и ограничения.</span></li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+              <span class="badge"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>эффект смешанный</span>
+            </div>
+            <h3>2) Экономика: где может быть польза</h3>
+            <p>Токенизация/ЦФА, финтех‑сервисы, комплаенс‑инфраструктура, аудит/аналитика, экспорт IT‑услуг.</p>
+            <ul class="list">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Рост компетенций и рабочих мест (финтех/безопасность).</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Потенциал “прозрачных правил” для бизнеса.</span></li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+              <span class="badge badge--risk"><i class="fa-solid fa-bug" aria-hidden="true"></i>риск‑контур</span>
+            </div>
+            <h3>3) Риски: что ломается первым</h3>
+            <p>Чаще всего — безопасность и мошенничество, а не “курс”. Потом — комплаенс и санкционные риски.</p>
+            <ul class="list">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Фишинг, подмена адресов, скамы, социнженерия.</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>AML/СFT: происхождение средств, контрагенты, цепочки.</span></li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-gavel" aria-hidden="true"></i></div>
+              <span class="badge"><i class="fa-solid fa-file-signature" aria-hidden="true"></i>нормы/реестр</span>
+            </div>
+            <h3>4) Регулирование</h3>
+            <p>Главное: корректная терминология и ссылки на официальный текст закона/регуляторов.</p>
+            <ul class="list">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>ФЗ и подзаконные акты задают рамки операций.</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Отдельно — рекомендации FATF (AML/СFT).</span></li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-shield" aria-hidden="true"></i></div>
+              <span class="badge"><i class="fa-solid fa-user-shield" aria-hidden="true"></i>потребитель</span>
+            </div>
+            <h3>5) Защита граждан</h3>
+            <p>В учебной/деловой работе это должен быть отдельный раздел, а не “мелким шрифтом”.</p>
+            <ul class="list">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Признаки пирамид, “гарантированных доходов”, псевдобирж.</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Базовые меры: 2FA, проверка домена, холодное хранение.</span></li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-receipt" aria-hidden="true"></i></div>
+              <span class="badge"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i>учет</span>
+            </div>
+            <h3>6) Налоги и учет</h3>
+            <p>Практический “узел”: фиксация операций, источники данных, методика оценок, документы.</p>
+            <ul class="list">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Налоговые последствия отличаются по операциям и статусу лица.</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Нужны ссылки на конкретные материалы ФНС.</span></li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
+              <span class="badge"><i class="fa-solid fa-plug" aria-hidden="true"></i>энерго‑фактор</span>
+            </div>
+            <h3>7) Майнинг</h3>
+            <p>Экономика проходит через энергетику: нагрузка, тарифы, инфраструктура, региональные эффекты.</p>
+            <ul class="list">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Плюсы: спрос на генерацию, развитие дата‑центров.</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Минусы: перегрузки сетей, конфликты за энергию.</span></li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
+              <span class="badge badge--risk"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>ограничения</span>
+            </div>
+            <h3>8) Трансграничные расчёты (осторожно)</h3>
+            <p>Не “волшебная палочка”. Обычно упирается в комплаенс, контрагентов, юрисдикции и ограничения.</p>
+            <ul class="list">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Риски: санкции, KYC, происхождение средств.</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>В докладе: описывай как сценарий, не как “факт”.</span></li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
+              <span class="badge badge--ok"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>практика</span>
+            </div>
+            <h3>9) Чек‑лист качества текста</h3>
+            <p>Чтобы “информация была нормальной”: фиксируй термины, отделяй факты права от оценок и прогнозов.</p>
+            <ul class="list">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Цифры без методики = маркетинг, не аналитика.</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Указывай дату, источник, валюту, допущения.</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="impact">
+        <div class="section__head">
+          <div>
+            <div class="kicker">экономика</div>
+            <h2 class="section__title">Как крипто влияет на экономику (и где это спорно)</h2>
+          </div>
+          <p class="section__desc">
+            Влияние редко прямое. Разложи по каналам: финансы → торговля → занятость → энергетика → риски/контроль.
+          </p>
+        </div>
+
+        <div class="split">
+          <div class="box reveal">
+            <h4><i class="fa-solid fa-building-columns" aria-hidden="true"></i> Финансовая система</h4>
+            <p>Эффект чаще через инфраструктуру: токенизация, ЦФА, новые финтех‑сервисы. Риски: защита потребителей и “серый” оборот.</p>
+          </div>
+
+          <div class="box reveal">
+            <h4><i class="fa-solid fa-globe" aria-hidden="true"></i> Торговля и расчёты</h4>
+            <p>В отдельных сценариях цифровые активы рассматривают как вспомогательный инструмент. Риски: комплаенс, контрагенты, ограничения.</p>
+          </div>
+
+          <div class="box reveal">
+            <h4><i class="fa-solid fa-user-shield" aria-hidden="true"></i> Защита граждан</h4>
+            <p>Пирамиды, “гарантированная доходность”, поддельные приложения и сайты. В хорошем докладе это не второстепенно.</p>
+          </div>
+
+          <div class="box reveal">
+            <h4><i class="fa-solid fa-rocket" aria-hidden="true"></i> Инновации и кадры</h4>
+            <p>Выгода: компетенции в криптографии, блокчейне, комплаенсе, аналитике. Эффект зависит от правил и институтов.</p>
+          </div>
+        </div>
+
+        <div class="chart reveal" aria-label="Сценарные ориентиры">
+          <div class="chart__inner">
+            <p class="chart__title">Сценарные ориентиры приоритетов (не прогноз)</p>
+            <p class="chart__sub">Визуализация того, где обычно сосредоточены усилия государства и бизнеса.</p>
+
+            <div class="bars" data-animate="bars">
+              <div class="bar">
+                <div class="bar__label">Комплаенс / AML</div>
+                <div class="bar__meter"><div class="bar__fill" data-value="0.88"></div></div>
+                <div class="bar__val">высокий</div>
+              </div>
+              <div class="bar">
+                <div class="bar__label">Защита потребителей</div>
+                <div class="bar__meter"><div class="bar__fill" data-value="0.78"></div></div>
+                <div class="bar__val">высокий</div>
+              </div>
+              <div class="bar">
+                <div class="bar__label">Токенизация / ЦФА</div>
+                <div class="bar__meter"><div class="bar__fill" data-value="0.64"></div></div>
+                <div class="bar__val">средний</div>
+              </div>
+              <div class="bar">
+                <div class="bar__label">Майнинг и энергия</div>
+                <div class="bar__meter"><div class="bar__fill" data-value="0.58"></div></div>
+                <div class="bar__val">средний</div>
+              </div>
+              <div class="bar">
+                <div class="bar__label">Трансгран. расчёты</div>
+                <div class="bar__meter"><div class="bar__fill" data-value="0.46"></div></div>
+                <div class="bar__val">точечно</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="reg">
+        <div class="section__head">
+          <div>
+            <div class="kicker">право</div>
+            <h2 class="section__title">Регулирование в РФ: где смотреть “как есть”</h2>
+          </div>
+          <p class="section__desc">Чтобы текст был корректным, опирайся на официальный текст закона и страницы регуляторов.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card reveal" style="grid-column:span 6">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></div>
+              <span class="badge"><i class="fa-solid fa-book" aria-hidden="true"></i>первичный документ</span>
+            </div>
+            <h3>ФЗ №259‑ФЗ (ЦФА и цифровая валюта)</h3>
+            <p>Определения и рамки обращения: что такое ЦФА, кто такие операторы, базовые принципы и ограничения.</p>
+            <a class="btn" href="http://publication.pravo.gov.ru/Document/View/0001202007310056" target="_blank" rel="noreferrer">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>Официальная публикация
+            </a>
+          </article>
+
+          <article class="card reveal" style="grid-column:span 6">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-landmark" aria-hidden="true"></i></div>
+              <span class="badge"><i class="fa-solid fa-list-check" aria-hidden="true"></i>реестры/FAQ</span>
+            </div>
+            <h3>Банк России: ЦФА и инфраструктура</h3>
+            <p>FAQ по ЦФА и страницы с описанием инфраструктуры — полезны для корректной терминологии.</p>
+            <div class="actions">
+              <a class="btn" href="https://www.cbr.ru/faq/tsfa/" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>FAQ по ЦФА</a>
+              <a class="btn" href="https://cbr.ru/finm_infrastructure/digital_oper/" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>Операторы ЦФА</a>
+            </div>
+          </article>
+
+          <article class="card reveal" style="grid-column:span 6">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i></div>
+              <span class="badge"><i class="fa-solid fa-receipt" aria-hidden="true"></i>налоги</span>
+            </div>
+            <h3>ФНС: налогообложение и майнинг</h3>
+            <p>Разъяснения и сервисы ФНС — главный ориентир для раздела “налоги/учет”. Ссылайся на конкретные материалы.</p>
+            <div class="actions">
+              <a class="btn" href="https://www.nalog.gov.ru/mining/" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>Майнинг (инфо/сервисы)</a>
+              <a class="btn" href="https://www.nalog.gov.ru/rn32/news/activities_fts/16543377/" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>Новость ФНС (пример)</a>
+            </div>
+          </article>
+
+          <article class="card reveal" style="grid-column:span 6">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-shield" aria-hidden="true"></i></div>
+              <span class="badge"><i class="fa-solid fa-earth-europe" aria-hidden="true"></i>международные стандарты</span>
+            </div>
+            <h3>FATF: виртуальные активы и “Travel Rule”</h3>
+            <p>Международные рекомендации по AML/СFT для виртуальных активов и провайдеров (VASPs).</p>
+            <div class="actions">
+              <a class="btn" href="https://www.fatf-gafi.org/en/topics/virtual-assets.html" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>Раздел FATF</a>
+              <a class="btn" href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/Best-Practices-Travel-Rule-Supervision.pdf" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>PDF (best practices)</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="compliance">
+        <div class="section__head">
+          <div>
+            <div class="kicker">AML/комплаенс</div>
+            <h2 class="section__title">Почему комплаенс — ключевой “экономический” блок</h2>
+          </div>
+          <p class="section__desc">
+            Для бизнеса вопрос обычно не “технологический”, а про допустимость операций, контрагентов и документирование.
+          </p>
+        </div>
+
+        <div class="split">
+          <div class="box reveal">
+            <h4><i class="fa-solid fa-shield" aria-hidden="true"></i> AML/СFT на практике</h4>
+            <p>Задача: снижать риски отмывания/финансирования терроризма. В крипто‑контуре это реализуется через KYC, мониторинг транзакций и контроль контрагентов.</p>
+          </div>
+          <div class="box reveal">
+            <h4><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> “Travel Rule” (логика)</h4>
+            <p>Смысл: при переводах между провайдерами часто требуется обмен данными об отправителе/получателе (в рамках стандартов/правил), чтобы повышать прослеживаемость.</p>
+          </div>
+        </div>
+
+        <div class="chart reveal">
+          <div class="chart__inner">
+            <p class="chart__title">Карта рисков комплаенса (пример для доклада)</p>
+            <p class="chart__sub">Можно вставлять как слайд: “что проверяем до операций”.</p>
+            <div class="bars" data-animate="bars">
+              <div class="bar">
+                <div class="bar__label">Контрагент/юрисдикция</div>
+                <div class="bar__meter"><div class="bar__fill" data-value="0.86"></div></div>
+                <div class="bar__val">критично</div>
+              </div>
+              <div class="bar">
+                <div class="bar__label">Происхождение средств</div>
+                <div class="bar__meter"><div class="bar__fill" data-value="0.82"></div></div>
+                <div class="bar__val">критично</div>
+              </div>
+              <div class="bar">
+                <div class="bar__label">Документы/учет операций</div>
+                <div class="bar__meter"><div class="bar__fill" data-value="0.70"></div></div>
+                <div class="bar__val">важно</div>
+              </div>
+              <div class="bar">
+                <div class="bar__label">Техническая безопасность</div>
+                <div class="bar__meter"><div class="bar__fill" data-value="0.66"></div></div>
+                <div class="bar__val">важно</div>
+              </div>
+              <div class="bar">
+                <div class="bar__label">Санкционные риски</div>
+                <div class="bar__meter"><div class="bar__fill" data-value="0.74"></div></div>
+                <div class="bar__val">важно</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="tax">
+        <div class="section__head">
+          <div>
+            <div class="kicker">налоги/учет</div>
+            <h2 class="section__title">Налоги и учет: как писать аккуратно (без “советов”)</h2>
+          </div>
+          <p class="section__desc">
+            Здесь чаще всего ошибаются: смешивают общие слова и конкретные правила. Ниже — безопасная структура для проекта.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></div>
+              <span class="badge"><i class="fa-solid fa-list" aria-hidden="true"></i>структура</span>
+            </div>
+            <h3>1) Опиши операции</h3>
+            <p>Не “крипто вообще”, а перечень сценариев: покупка/продажа, обмен, хранение, майнинг, услуги.</p>
+            <ul class="list">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Для каждого сценария: субъект, дата, валюта, источник данных.</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Укажи: это обзор, не налоговая консультация.</span></li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-database" aria-hidden="true"></i></div>
+              <span class="badge"><i class="fa-solid fa-clock" aria-hidden="true"></i>время/источник</span>
+            </div>
+            <h3>2) Зафиксируй источник оценок</h3>
+            <p>Если нужны цифры — укажи источник котировки/курса и момент времени. Без этого расчеты “плывут”.</p>
+            <ul class="list">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Источник, дата/время, валюта, методика.</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Отдельно отметь: высокая волатильность.</span></li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-receipt" aria-hidden="true"></i></div>
+              <span class="badge badge--risk"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>частая ошибка</span>
+            </div>
+            <h3>3) Документы и подтверждение</h3>
+            <p>В “взрослой” части перечисли, что может подтверждать операции: выписки, договоры, акты, логи, чеки.</p>
+            <ul class="list">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Хранение: резервные копии, безопасность, доступы.</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Не “прячь” допущения — их пишут явно.</span></li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="notice" role="note" aria-label="Дисклеймер по налогам">
+          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+          <div>
+            <b>Дисклеймер:</b> раздел про налоги — методика “как оформлять и проверять”, не инструкция и не индивидуальная консультация.
+            Для практики — см. материалы ФНС из раздела источников.
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="mining">
+        <div class="section__head">
+          <div>
+            <div class="kicker">инфраструктура</div>
+            <h2 class="section__title">Майнинг: экономика через энергетику и регионы</h2>
+          </div>
+          <p class="section__desc">
+            Чтобы текст выглядел “взросло”, описывай майнинг через измеримые эффекты: нагрузка, тарифы, капзатраты, рабочие места, налоги, риски сетей.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-plug-circle-bolt" aria-hidden="true"></i></div>
+              <span class="badge"><i class="fa-solid fa-battery-half" aria-hidden="true"></i>энергия</span>
+            </div>
+            <h3>Нагрузка и тарифы</h3>
+            <p>Основной конфликт — за электроэнергию и доступ к сети. Различай промышленные площадки и “домашний” майнинг.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-server" aria-hidden="true"></i></div>
+              <span class="badge"><i class="fa-solid fa-network-wired" aria-hidden="true"></i>дата‑центры</span>
+            </div>
+            <h3>Инфраструктура</h3>
+            <p>Где есть энергоизлишки и логистика, там появляются площадки: дата‑центры, ремонт, охлаждение, связь.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="icon"><i class="fa-solid fa-handshake" aria-hidden="true"></i></div>
+              <span class="badge badge--risk"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>рег‑риски</span>
+            </div>
+            <h3>Правила и комплаенс</h3>
+            <p>Для “легальной” модели нужны прозрачность доходов, учет затрат, договоры по энергии/площадкам и контроль рисков.</p>
+          </article>
+        </div>
+
+        <div class="chart reveal">
+          <div class="chart__inner">
+            <p class="chart__title">Чек‑лист для раздела “майнинг”</p>
+            <p class="chart__sub">Для школьного/вузовского проекта — помогает сделать текст точнее.</p>
+            <ul class="list" style="margin-top:8px">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Тип майнинга (промышленный/частный), оценка мощности площадок.</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Источник энергии и условия подключения (сети, ограничения, сезонность).</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Экономика: CAPEX/OPEX, охлаждение, ремонт, риски простоя.</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Налоги/учет, комплаенс, требования к отчетности.</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="timeline">
+        <div class="section__head">
+          <div>
+            <div class="kicker">хронология</div>
+            <h2 class="section__title">Как писать “актуально”: хронология и привязка к документам</h2>
+          </div>
+          <p class="section__desc">Вместо “в России запретили/разрешили” — делай линию времени и ссылки на первоисточники.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="event reveal">
+            <div class="event__y">2020</div>
+            <h3>ФЗ №259‑ФЗ: базовые определения</h3>
+            <p>Фундамент терминов: ЦФА, цифровая валюта, операторы и рамки обращения.</p>
+            <p style="margin-top:10px"><a href="http://publication.pravo.gov.ru/Document/View/0001202007310056" target="_blank" rel="noreferrer">Официальная публикация →</a></p>
+          </article>
+
+          <article class="event reveal">
+            <div class="event__y">Регулятор</div>
+            <h3>ЦФА: реестры и инфраструктура</h3>
+            <p>Уточняй формулировки по страницам Банка России — это снимает половину “ошибок в терминах”.</p>
+            <p style="margin-top:10px"><a href="https://cbr.ru/finm_infrastructure/digital_oper/" target="_blank" rel="noreferrer">Операторы ЦФА →</a></p>
+          </article>
+
+          <article class="event reveal">
+            <div class="event__y">FATF</div>
+            <h3>Стандарты по VA/VASP</h3>
+            <p>Для раздела “риски” указывай международную рамку (AML/СFT, Travel Rule, надзор).</p>
+            <p style="margin-top:10px"><a href="https://www.fatf-gafi.org/en/topics/virtual-assets.html" target="_blank" rel="noreferrer">Virtual Assets →</a></p>
+          </article>
+        </div>
+
+        <div class="chart reveal">
+          <div class="chart__inner">
+            <p class="chart__title">Мини‑чеклист “актуальности”</p>
+            <p class="chart__sub">Перед сдачей проекта отметь 5 пунктов — это сразу улучшает качество текста.</p>
+
+            <div class="checklist" id="checklist">
+              <label class="check">
+                <input type="checkbox" data-key="def" />
+                <div>
+                  <b>Термины определены</b>
+                  <span>В начале текста: ЦФА ≠ цифровая валюта; где границы темы.</span>
+                </div>
+              </label>
+              <label class="check">
+                <input type="checkbox" data-key="src" />
+                <div>
+                  <b>Есть ссылки на первоисточники</b>
+                  <span>Законы/регуляторы/стандарты, а не пересказы “из СМИ”.</span>
+                </div>
+              </label>
+              <label class="check">
+                <input type="checkbox" data-key="risk" />
+                <div>
+                  <b>Риски описаны симметрично “пользе”</b>
+                  <span>Мошенничество, безопасность, AML/санкции, защита потребителей.</span>
+                </div>
+              </label>
+              <label class="check">
+                <input type="checkbox" data-key="nums" />
+                <div>
+                  <b>Цифры с методикой</b>
+                  <span>Дата/время, источник, валюта, допущения, неопределённость.</span>
+                </div>
+              </label>
+              <label class="check">
+                <input type="checkbox" data-key="disc" />
+                <div>
+                  <b>Дисклеймер “не инвестсовет”</b>
+                  <span>И явно: диаграммы/ориентиры не являются рекомендациями.</span>
+                </div>
+              </label>
+            </div>
+
+            <div class="progress" aria-label="Прогресс чеклиста">
+              <span id="progressText">Готовность: 0/5</span>
+              <div class="progress__meter" aria-hidden="true"><div class="progress__fill" id="progressFill"></div></div>
+              <button class="btn" id="resetChecklist" type="button"><i class="fa-solid fa-rotate-right"></i>Сброс</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="glossary">
+        <div class="section__head">
+          <div>
+            <div class="kicker">термины</div>
+            <h2 class="section__title">Глоссарий: коротко, без путаницы</h2>
+          </div>
+          <p class="section__desc">Этот блок можно вставлять в начало реферата/презентации как “рамку терминов”.</p>
+        </div>
+
+        <div class="faq">
+          <details class="reveal">
+            <summary>ЦФА (цифровые финансовые активы) <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i></summary>
+            <p>Цифровые права в регулируемой инфраструктуре. В докладе: подчеркни, что это не “любая крипта”, а отдельная правовая конструкция.</p>
+          </details>
+          <details class="reveal">
+            <summary>Цифровая валюта (в бытовом смысле криптовалюта) <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i></summary>
+            <p>Категория с иным риск‑профилем и ограничениями. Частая ошибка — приравнивать к ЦФА.</p>
+          </details>
+          <details class="reveal">
+            <summary>VASP / провайдер услуг виртуальных активов <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i></summary>
+            <p>Термин FATF: биржи/обменники/кастодианы и др. “точки контроля” для AML/СFT.</p>
+          </details>
+          <details class="reveal">
+            <summary>AML/СFT <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i></summary>
+            <p>Комплекс мер против отмывания и финансирования терроризма: KYC, мониторинг транзакций, контроль контрагентов и отчетность.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="section__head">
+          <div>
+            <div class="kicker">FAQ</div>
+            <h2 class="section__title">Частые вопросы (коротко и по делу)</h2>
+          </div>
+          <p class="section__desc">Этот блок можно использовать как “выводы” в конце проекта.</p>
+        </div>
+
+        <div class="faq">
+          <details class="reveal">
+            <summary>Криптовалюта и ЦФА — это одно и то же? <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i></summary>
+            <p>Нет. ЦФА — цифровые права в регулируемой инфраструктуре. “Цифровая валюта” — отдельная категория с иными рисками и ограничениями.</p>
+          </details>
+          <details class="reveal">
+            <summary>Почему на таких сайтах часто “ломается правда”? <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i></summary>
+            <p>Смешивают маркетинг и аналитику: спорные оценки без методики, “точные” цифры без источника, отсутствие разделения фактов права и прогнозов.</p>
+          </details>
+          <details class="reveal">
+            <summary>Что самое важное для экономики РФ в теме крипто? <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i></summary>
+            <p>Чаще выделяют: (1) регулирование и комплаенс, (2) защиту потребителей, (3) инфраструктуру токенизации/ЦФА, (4) влияние майнинга на энергетику и регионы.</p>
+          </details>
+          <details class="reveal">
+            <summary>Можно ли использовать “котировки” в учебном проекте? <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i></summary>
+            <p>Можно, но укажи источник (биржа/агрегатор), дату/время и валюту. На этой странице бегущая строка — демо‑элемент дизайна.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section" id="sources">
+        <div class="section__head">
+          <div>
+            <div class="kicker">источники</div>
+            <h2 class="section__title">Ссылки для “нормальной” информации</h2>
+          </div>
+          <p class="section__desc">Поддерживай тезисы первоисточниками. Если добавляешь цифры — рядом ставь ссылку и методику.</p>
+        </div>
+
+        <div class="split">
+          <div class="box reveal">
+            <h4>Официальные документы и регуляторы</h4>
+            <ul class="links" style="margin-top:12px">
+              <li><a href="http://publication.pravo.gov.ru/Document/View/0001202007310056" target="_blank" rel="noreferrer"><span>ФЗ №259‑ФЗ (официальная публикация)</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+              <li><a href="https://www.cbr.ru/faq/tsfa/" target="_blank" rel="noreferrer"><span>Банк России — FAQ по ЦФА</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+              <li><a href="https://cbr.ru/finm_infrastructure/digital_oper/" target="_blank" rel="noreferrer"><span>Банк России — инфраструктура/операторы ЦФА</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+              <li><a href="https://www.nalog.gov.ru/mining/" target="_blank" rel="noreferrer"><span>ФНС — майнинг (инфо/сервисы)</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+
+          <div class="box reveal">
+            <h4>Международные стандарты и риск‑контур</h4>
+            <ul class="links" style="margin-top:12px">
+              <li><a href="https://www.fatf-gafi.org/en/topics/virtual-assets.html" target="_blank" rel="noreferrer"><span>FATF — Virtual Assets</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+              <li><a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/Best-Practices-Travel-Rule-Supervision.pdf" target="_blank" rel="noreferrer"><span>FATF — Travel Rule (PDF)</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+              <li><a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/2024-Targeted-Update-VA-VASP.pdf.coredownload.inline.pdf" target="_blank" rel="noreferrer"><span>FATF — Targeted update (2024)</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top:16px; display:flex; justify-content:center">
+          <a class="btn btn--primary to-top" href="#home"><i class="fa-solid fa-arrow-up"></i>Наверх</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:center">
+      <small>2026
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const nav = document.getElementById('nav');
+      const toggle = document.getElementById('navToggle');
+
+      function setOpen(open){
+        nav.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+      }
+
+      toggle.addEventListener('click', () => setOpen(!nav.classList.contains('is-open')));
+      nav.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', () => setOpen(false)));
+      document.addEventListener('keydown', (e) => { if(e.key === 'Escape') setOpen(false); });
+      document.addEventListener('click', (e) => {
+        if(!nav.classList.contains('is-open')) return;
+        const t = e.target;
+        if(t === toggle || toggle.contains(t)) return;
+        if(nav.contains(t)) return;
+        setOpen(false);
+      });
+
+      const header = document.getElementById('header');
+      function onScroll(){ header.classList.toggle('is-scrolled', window.scrollY > 6); }
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      const sections = Array.from(document.querySelectorAll('main section[id]'));
+      const links = Array.from(nav.querySelectorAll('a[href^="#"]'));
+      const linkById = new Map(links.map(l => [l.getAttribute('href').slice(1), l]));
+
+      const obsActive = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(!entry.isIntersecting) return;
+          const id = entry.target.getAttribute('id');
+          links.forEach(l => l.classList.remove('is-active'));
+          const active = linkById.get(id);
+          if(active) active.classList.add('is-active');
+        });
+      }, { rootMargin: '-30% 0px -60% 0px', threshold: 0.01 });
+
+      sections.forEach(s => obsActive.observe(s));
+
+      const revealEls = Array.from(document.querySelectorAll('.reveal'));
+      const obsReveal = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+
+          const bars = entry.target.querySelectorAll('[data-value]');
+          bars.forEach(b => {
+            const v = Math.max(0, Math.min(1, Number(b.getAttribute('data-value') || '0')));
+            b.style.width = (v * 100).toFixed(0) + '%';
+          });
+
+          obsReveal.unobserve(entry.target);
+        });
+      }, { threshold: 0.12 });
+
+      revealEls.forEach(el => obsReveal.observe(el));
+
+      const btcPrice = document.getElementById('btcPrice');
+      const ethPrice = document.getElementById('ethPrice');
+      const btcDelta = document.getElementById('btcDelta');
+      const ethDelta = document.getElementById('ethDelta');
+
+      function fmtRub(n){
+        return '₽' + n.toLocaleString('ru-RU', { maximumFractionDigits: 0 });
+      }
+      function setDelta(el, value){
+        const sign = value >= 0 ? '+' : '';
+        el.textContent = sign + value.toFixed(1) + '%';
+        el.classList.toggle('up', value >= 0);
+        el.classList.toggle('down', value < 0);
+      }
+
+      let baseBtc = 4200000;
+      let baseEth = 240000;
+
+      function tick(){
+        const dB = (Math.random() - 0.45) * 1.2;
+        const dE = (Math.random() - 0.55) * 1.6;
+        baseBtc = Math.max(1, baseBtc * (1 + dB/100));
+        baseEth = Math.max(1, baseEth * (1 + dE/100));
+        btcPrice.textContent = fmtRub(baseBtc);
+        ethPrice.textContent = fmtRub(baseEth);
+        setDelta(btcDelta, dB);
+        setDelta(ethDelta, dE);
+      }
+
+      tick();
+      setInterval(tick, 9000);
+
+      const checklist = document.getElementById('checklist');
+      const progressText = document.getElementById('progressText');
+      const progressFill = document.getElementById('progressFill');
+      const resetBtn = document.getElementById('resetChecklist');
+
+      function keyFor(k){ return 'cr-check-' + k; }
+
+      function updateProgress(){
+        const inputs = Array.from(checklist.querySelectorAll('input[type="checkbox"][data-key]'));
+        const done = inputs.filter(i => i.checked).length;
+        const total = inputs.length;
+        progressText.textContent = 'Готовность: ' + done + '/' + total;
+        progressFill.style.width = (total ? (done/total)*100 : 0).toFixed(0) + '%';
+      }
+
+      Array.from(checklist.querySelectorAll('input[type="checkbox"][data-key]')).forEach(input => {
+        const k = input.getAttribute('data-key');
+        const saved = localStorage.getItem(keyFor(k));
+        input.checked = saved === '1';
+
+        input.addEventListener('change', () => {
+          localStorage.setItem(keyFor(k), input.checked ? '1' : '0');
+          updateProgress();
+        });
+      });
+
+      resetBtn.addEventListener('click', () => {
+        Array.from(checklist.querySelectorAll('input[type="checkbox"][data-key]')).forEach(input => {
+          const k = input.getAttribute('data-key');
+          input.checked = false;
+          localStorage.setItem(keyFor(k), '0');
+        });
+        updateProgress();
+      });
+
+      updateProgress();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,2288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Чёрное море: Экологический кризис 2026</title>
+  <meta name="description" content="Экологический кризис Чёрного моря: ключевые угрозы, реальные данные и меры по восстановлению экосистемы на 2026 год." />
+  <meta name="theme-color" content="#0a1f44" />
+
+  <meta property="og:title" content="Чёрное море: Экологический кризис 2026" />
+  <meta property="og:description" content="Реальные данные, проблемы и пути решения для защиты экосистемы Чёрного моря." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:image" content="https://avatars.mds.yandex.net/i?id=c98348e63fc39696d5dd37178280eee1_l-5877774-images-thumbs&n=13" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --deep-blue: #0a1f44;
+      --sea-blue: #1c3b6a;
+      --aqua: #2a9d8f;
+      --coral: #e76f51;
+      --gold: #f4a261;
+      --light-blue: #a8dadc;
+      --white: #ffffff;
+      --dark: #0a192f;
+      --gradient-ocean: linear-gradient(135deg, #0a1f44, #1c3b6a, #2a9d8f);
+      --gradient-sunset: linear-gradient(135deg, #e76f51, #f4a261, #2a9d8f);
+      --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.45);
+      --shadow-md: 0 14px 35px rgba(0, 0, 0, 0.35);
+      --ring: 0 0 0 4px rgba(42, 157, 143, 0.25);
+      --radius-xl: 20px;
+      --radius-lg: 15px;
+      --radius-md: 12px;
+      --text: rgba(255, 255, 255, 0.92);
+      --muted: rgba(168, 218, 220, 0.92);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: radial-gradient(1200px 600px at 15% -10%, rgba(42, 157, 143, 0.15), transparent 60%),
+        radial-gradient(900px 500px at 85% 10%, rgba(231, 111, 81, 0.08), transparent 55%),
+        var(--dark);
+      color: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 25px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 12px;
+      z-index: 2000;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(10, 31, 68, 0.95);
+      border: 1px solid rgba(168, 218, 220, 0.25);
+      box-shadow: var(--shadow-md);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .skip-link:focus {
+      left: 12px;
+      outline: none;
+      box-shadow: var(--shadow-md), var(--ring);
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+      white-space: nowrap;
+    }
+
+    /* Header */
+    header {
+      background: rgba(10, 31, 68, 0.85);
+      backdrop-filter: blur(12px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(168, 218, 220, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: all 0.35s;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      gap: 18px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 1.85rem;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .logo i {
+      color: var(--gold);
+      margin-right: 12px;
+      font-size: 2.1rem;
+    }
+
+    .logo-text {
+      background: var(--gradient-ocean);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .logo-year {
+      font-size: 1.05rem;
+      color: var(--gold);
+      margin-left: 6px;
+      font-weight: 700;
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .nav-icon {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: var(--light-blue);
+      transition: transform 0.2s, color 0.2s, background 0.2s;
+      padding: 8px 14px;
+      border-radius: 12px;
+      position: relative;
+      outline: none;
+    }
+
+    .nav-icon:hover {
+      color: var(--gold);
+      background: rgba(42, 157, 143, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .nav-icon:focus-visible {
+      box-shadow: var(--ring);
+    }
+
+    .nav-icon i {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .nav-icon span {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .nav-icon.active {
+      color: var(--gold);
+      background: rgba(42, 157, 143, 0.16);
+    }
+
+    .nav-icon.active::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 0 6px rgba(244, 162, 97, 0.12);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid rgba(168, 218, 220, 0.22);
+      background: rgba(28, 59, 106, 0.35);
+      color: var(--white);
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s, border-color 0.2s;
+    }
+
+    .icon-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(28, 59, 106, 0.5);
+      border-color: rgba(168, 218, 220, 0.35);
+    }
+
+    .icon-btn:focus-visible {
+      outline: none;
+      box-shadow: var(--ring);
+    }
+
+    /* Mobile menu */
+    .mobile-menu-btn {
+      display: none;
+    }
+
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+      z-index: 1400;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100dvh;
+      width: min(420px, 92vw);
+      background: rgba(10, 31, 68, 0.95);
+      backdrop-filter: blur(14px);
+      border-left: 1px solid rgba(168, 218, 220, 0.18);
+      transform: translateX(110%);
+      transition: transform 0.25s;
+      z-index: 1500;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mobile-menu-header {
+      padding: 18px 18px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(168, 218, 220, 0.12);
+    }
+
+    .mobile-menu-title {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--white);
+    }
+
+    .mobile-menu-content {
+      padding: 12px;
+      overflow: auto;
+    }
+
+    .mobile-nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .mobile-nav a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 14px;
+      border-radius: 14px;
+      text-decoration: none;
+      background: rgba(28, 59, 106, 0.35);
+      border: 1px solid rgba(168, 218, 220, 0.12);
+      color: var(--light-blue);
+      transition: transform 0.2s, background 0.2s, color 0.2s;
+    }
+
+    .mobile-nav a:hover {
+      transform: translateY(-2px);
+      background: rgba(28, 59, 106, 0.5);
+      color: var(--gold);
+    }
+
+    .mobile-nav a:focus-visible {
+      outline: none;
+      box-shadow: var(--ring);
+    }
+
+    .mobile-nav a.active {
+      color: var(--gold);
+      border-color: rgba(244, 162, 97, 0.28);
+    }
+
+    .mobile-nav i {
+      width: 22px;
+      text-align: center;
+      color: var(--gold);
+    }
+
+    body.menu-open .mobile-menu-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    body.menu-open .mobile-menu {
+      transform: translateX(0);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        linear-gradient(rgba(10, 25, 47, 0.82), rgba(10, 31, 68, 0.92)),
+        url('https://avatars.mds.yandex.net/i?id=c98348e63fc39696d5dd37178280eee1_l-5877774-images-thumbs&n=13');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      z-index: -2;
+      filter: saturate(1.05) contrast(1.02);
+    }
+
+    .hero-content {
+      max-width: 980px;
+      padding: clamp(22px, 4vw, 42px);
+      background: rgba(10, 31, 68, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(168, 218, 220, 0.2);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--gradient-sunset);
+    }
+
+    .hero h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(2.1rem, 4vw, 3.6rem);
+      font-weight: 800;
+      margin-bottom: 18px;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-highlight {
+      background: var(--gradient-sunset);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 1.55vw, 1.35rem);
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 760px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 28px;
+      background: var(--gradient-ocean);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(10, 31, 68, 0.45);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(10, 31, 68, 0.62);
+      filter: saturate(1.05);
+    }
+
+    .btn:focus-visible {
+      outline: none;
+      box-shadow: 0 16px 40px rgba(10, 31, 68, 0.62), var(--ring);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid rgba(42, 157, 143, 0.9);
+      color: rgba(168, 218, 220, 0.98);
+    }
+
+    .btn-outline:hover {
+      background: rgba(42, 157, 143, 0.18);
+      color: var(--white);
+      box-shadow: 0 16px 40px rgba(10, 31, 68, 0.45);
+    }
+
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 26px;
+      margin: 78px 0;
+    }
+
+    .stat-card {
+      background: rgba(28, 59, 106, 0.5);
+      border-radius: var(--radius-lg);
+      padding: 34px 24px;
+      text-align: center;
+      position: relative;
+      transition: transform 0.25s;
+      overflow: hidden;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: var(--gradient-ocean);
+      border-radius: calc(var(--radius-lg) + 2px);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .stat-card:hover::before {
+      opacity: 1;
+    }
+
+    .stat-number {
+      font-family: 'Raleway', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      background: var(--gradient-sunset);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-text {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* Sections */
+    main {
+      display: block;
+    }
+
+    .section {
+      padding: 110px 0;
+      position: relative;
+    }
+
+    .section-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.12;
+      filter: saturate(1.05);
+    }
+
+    .section-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 18px;
+      position: relative;
+      display: inline-block;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 78px;
+      height: 4px;
+      background: var(--gradient-sunset);
+      bottom: -14px;
+      left: 0;
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+      color: var(--muted);
+      margin-bottom: 52px;
+      max-width: 900px;
+    }
+
+    /* Accordion */
+    .accordion-container {
+      max-width: 980px;
+      margin: 48px auto 0;
+    }
+
+    .accordion-item {
+      background: rgba(28, 59, 106, 0.5);
+      border-radius: var(--radius-md);
+      margin-bottom: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(168, 218, 220, 0.12);
+    }
+
+    .accordion-btn {
+      width: 100%;
+      padding: 22px 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+      background: transparent;
+      border: none;
+      color: var(--white);
+      text-align: left;
+    }
+
+    .accordion-btn:hover {
+      background: rgba(42, 157, 143, 0.1);
+    }
+
+    .accordion-btn:focus-visible {
+      outline: none;
+      box-shadow: inset var(--ring);
+    }
+
+    .accordion-btn h3 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.4rem;
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+    }
+
+    .accordion-icon {
+      color: var(--gold);
+      font-size: 1.1rem;
+      transition: transform 0.25s;
+      flex: 0 0 auto;
+    }
+
+    .accordion-icon.active {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      padding: 0 26px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      color: var(--text);
+    }
+
+    .accordion-content.active {
+      padding: 0 26px 22px;
+      max-height: 1200px;
+    }
+
+    /* Infographic */
+    .infographic {
+      display: flex;
+      align-items: flex-end;
+      height: 400px;
+      gap: 18px;
+      margin: 60px 0 10px;
+    }
+
+    .info-column {
+      flex: 1;
+      background: linear-gradient(180deg, rgba(42, 157, 143, 0.85), rgba(10, 31, 68, 0.85));
+      border-radius: 12px 12px 0 0;
+      position: relative;
+      transition: transform 0.2s, opacity 0.2s;
+      cursor: pointer;
+      border: 1px solid rgba(168, 218, 220, 0.12);
+    }
+
+    .info-column:hover {
+      opacity: 0.96;
+      transform: scaleY(1.04);
+    }
+
+    .column-label {
+      position: absolute;
+      bottom: -44px;
+      width: 100%;
+      text-align: center;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0 8px;
+    }
+
+    .column-value {
+      position: absolute;
+      top: -44px;
+      width: 100%;
+      text-align: center;
+      color: var(--gold);
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 22px;
+      margin-top: 56px;
+    }
+
+    .gallery-item {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      height: 250px;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+      border: 1px solid rgba(168, 218, 220, 0.12);
+      background: rgba(28, 59, 106, 0.25);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .gallery-item:focus-visible {
+      outline: none;
+      box-shadow: var(--shadow-md), var(--ring);
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s;
+      transform: scale(1.02);
+    }
+
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 18px;
+      background: linear-gradient(transparent, rgba(10, 31, 68, 0.95));
+      color: var(--white);
+    }
+
+    .gallery-overlay h3 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+    }
+
+    .gallery-overlay p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    /* Map */
+    .map-container {
+      position: relative;
+      height: 520px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-top: 56px;
+      border: 2px solid rgba(42, 157, 143, 0.3);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .map-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.02) contrast(1.02);
+    }
+
+    .map-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, rgba(10, 31, 68, 0.85), rgba(28, 59, 106, 0.82));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(18px, 4vw, 46px);
+    }
+
+    /* Resources */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 26px;
+      margin-top: 58px;
+    }
+
+    .resource-card {
+      background: rgba(28, 59, 106, 0.5);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      border-left: 5px solid var(--gold);
+      transition: transform 0.25s, background 0.25s, box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid rgba(168, 218, 220, 0.1);
+      border-right: 1px solid rgba(168, 218, 220, 0.1);
+      border-bottom: 1px solid rgba(168, 218, 220, 0.1);
+    }
+
+    .resource-card:hover {
+      transform: translateY(-8px);
+      background: rgba(28, 59, 106, 0.68);
+      box-shadow: var(--shadow-md);
+    }
+
+    .resource-icon {
+      font-size: 2.35rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .resource-card h3 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .resource-card p {
+      color: var(--text);
+    }
+
+    /* Join / Form */
+    .join-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 26px;
+      align-items: start;
+      margin-top: 56px;
+    }
+
+    .join-card {
+      background: rgba(28, 59, 106, 0.5);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      border: 1px solid rgba(168, 218, 220, 0.12);
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    .join-steps {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 14px;
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(10, 31, 68, 0.35);
+      border: 1px solid rgba(168, 218, 220, 0.12);
+    }
+
+    .step-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: var(--dark);
+      background: linear-gradient(135deg, rgba(244, 162, 97, 1), rgba(42, 157, 143, 1));
+      box-shadow: 0 10px 25px rgba(10, 31, 68, 0.45);
+    }
+
+    .step h4 {
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.18rem;
+      letter-spacing: -0.01em;
+    }
+
+    .step p {
+      margin-top: 6px;
+      color: var(--muted);
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    label {
+      font-weight: 800;
+      color: rgba(168, 218, 220, 0.98);
+      font-size: 0.95rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(168, 218, 220, 0.18);
+      background: rgba(10, 31, 68, 0.42);
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(168, 218, 220, 0.7);
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(42, 157, 143, 0.7);
+      box-shadow: var(--ring);
+    }
+
+    .form-hint {
+      color: rgba(168, 218, 220, 0.85);
+      font-size: 0.95rem;
+      margin-top: 8px;
+    }
+
+    .form-error {
+      display: none;
+      color: rgba(231, 111, 81, 0.95);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .form-error.visible {
+      display: block;
+    }
+
+    /* Final image */
+    .final-image-section {
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .final-image-container {
+      max-width: 980px;
+      margin: 0 auto;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(168, 218, 220, 0.12);
+      background: rgba(28, 59, 106, 0.25);
+    }
+
+    .final-image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .final-image-caption {
+      margin-top: 18px;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--deep-blue);
+      padding: 92px 0 46px;
+      position: relative;
+      margin-top: 92px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 46px;
+      margin-bottom: 54px;
+    }
+
+    .footer-logo {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+      background: var(--gradient-ocean);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .footer-about p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .footer-links h4 {
+      margin-bottom: 18px;
+      color: var(--gold);
+      font-size: 1.3rem;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links ul li a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s, transform 0.2s;
+      font-size: 1.05rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-links ul li a i {
+      color: var(--aqua);
+    }
+
+    .footer-links ul li a:hover {
+      color: var(--gold);
+      transform: translateX(6px);
+    }
+
+    .footer-links ul li a:focus-visible {
+      outline: none;
+      box-shadow: var(--ring);
+      border-radius: 10px;
+      padding: 4px 8px;
+      margin-left: -8px;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 34px;
+      border-top: 1px solid rgba(168, 218, 220, 0.1);
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .year {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    /* Waves */
+    .waves {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      pointer-events: none;
+    }
+
+    .waves svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 100px;
+    }
+
+    /* Fish */
+    .fish-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+      perspective: 1000px;
+      opacity: 0.8;
+    }
+
+    .fish-3d {
+      position: absolute;
+      width: 40px;
+      height: 20px;
+      transform-style: preserve-3d;
+      animation-duration: 20s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-delay: 0s;
+    }
+
+    .fish-body {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      background: linear-gradient(45deg, #4a9de3, #2a9d8f, #a8dadc);
+      transform-style: preserve-3d;
+      box-shadow: inset 0 0 10px rgba(168, 218, 220, 0.5), 0 5px 15px rgba(10, 31, 68, 0.3);
+      animation: bodyMove 2s ease-in-out infinite;
+    }
+
+    .fish-tail {
+      position: absolute;
+      left: -10px;
+      top: 50%;
+      width: 15px;
+      height: 30px;
+      background: linear-gradient(45deg, #2a9d8f, #4a9de3);
+      border-radius: 0 50% 50% 0 / 0 50% 50% 0;
+      transform: translateY(-50%) rotateY(45deg);
+      animation: tailMove 0.3s ease-in-out infinite alternate;
+    }
+
+    .fish-fin {
+      position: absolute;
+      top: -5px;
+      right: 10px;
+      width: 15px;
+      height: 10px;
+      background: linear-gradient(45deg, #2a9d8f, #4a9de3);
+      border-radius: 50% 50% 0 0;
+      transform: rotateX(45deg);
+      animation: finMove 1s ease-in-out infinite alternate;
+    }
+
+    .fish-eye {
+      position: absolute;
+      right: 8px;
+      top: 6px;
+      width: 4px;
+      height: 4px;
+      background: #0a1f44;
+      border-radius: 50%;
+      box-shadow: 0 0 3px white;
+    }
+
+    @keyframes swim3D-1-forward {
+      0% {
+        transform: translate3d(100vw, 0, -200px) rotateY(180deg) rotateX(10deg);
+      }
+      20% {
+        transform: translate3d(80vw, -40px, 100px) rotateY(180deg) rotateX(-5deg);
+      }
+      40% {
+        transform: translate3d(60vw, 30px, -150px) rotateY(180deg) rotateX(15deg);
+      }
+      60% {
+        transform: translate3d(40vw, -25px, 50px) rotateY(180deg) rotateX(-10deg);
+      }
+      80% {
+        transform: translate3d(20vw, 20px, -100px) rotateY(180deg) rotateX(5deg);
+      }
+      100% {
+        transform: translate3d(-100px, 0, -200px) rotateY(180deg) rotateX(10deg);
+      }
+    }
+
+    @keyframes swim3D-2-forward {
+      0% {
+        transform: translate3d(100vw, 50px, 100px) rotateY(180deg) rotateX(-15deg);
+      }
+      25% {
+        transform: translate3d(75vw, -30px, -50px) rotateY(180deg) rotateX(10deg);
+      }
+      50% {
+        transform: translate3d(50vw, 40px, 150px) rotateY(180deg) rotateX(-20deg);
+      }
+      75% {
+        transform: translate3d(25vw, -20px, -100px) rotateY(180deg) rotateX(15deg);
+      }
+      100% {
+        transform: translate3d(-100px, 50px, 100px) rotateY(180deg) rotateX(-15deg);
+      }
+    }
+
+    @keyframes swim3D-3-forward {
+      0% {
+        transform: translate3d(100vw, -30px, -50px) rotateY(180deg) rotateX(5deg);
+      }
+      30% {
+        transform: translate3d(70vw, 50px, 200px) rotateY(180deg) rotateX(-10deg);
+      }
+      60% {
+        transform: translate3d(40vw, -40px, -150px) rotateY(180deg) rotateX(15deg);
+      }
+      90% {
+        transform: translate3d(10vw, 30px, 50px) rotateY(180deg) rotateX(-5deg);
+      }
+      100% {
+        transform: translate3d(-100px, -30px, -50px) rotateY(180deg) rotateX(5deg);
+      }
+    }
+
+    @keyframes bodyMove {
+      0%,
+      100% {
+        transform: translateZ(0) rotateY(0deg);
+      }
+      50% {
+        transform: translateZ(2px) rotateY(5deg);
+      }
+    }
+
+    @keyframes tailMove {
+      0% {
+        transform: translateY(-50%) rotateY(30deg);
+      }
+      100% {
+        transform: translateY(-50%) rotateY(60deg);
+      }
+    }
+
+    @keyframes finMove {
+      0% {
+        transform: rotateX(30deg);
+      }
+      100% {
+        transform: rotateX(60deg);
+      }
+    }
+
+    /* Animations */
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-18px);
+      }
+    }
+
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+      z-index: 1600;
+    }
+
+    .lightbox.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-dialog {
+      width: min(1000px, 96vw);
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(10, 31, 68, 0.92);
+      border: 1px solid rgba(168, 218, 220, 0.18);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .lightbox-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(168, 218, 220, 0.12);
+    }
+
+    .lightbox-title {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--white);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .lightbox-content {
+      display: grid;
+    }
+
+    .lightbox-content img {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .lightbox-caption {
+      padding: 14px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%) translateY(30px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.25s, opacity 0.25s;
+      z-index: 1700;
+      background: rgba(10, 31, 68, 0.92);
+      border: 1px solid rgba(168, 218, 220, 0.18);
+      color: var(--white);
+      border-radius: 14px;
+      box-shadow: var(--shadow-md);
+      padding: 12px 14px;
+      width: min(680px, 92vw);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .toast.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast strong {
+      font-weight: 900;
+      color: var(--gold);
+    }
+
+    /* Floating top button */
+    .fab {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: rgba(28, 59, 106, 0.55);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(168, 218, 220, 0.18);
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 1200;
+    }
+
+    .fab.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .fab:hover {
+      background: rgba(28, 59, 106, 0.7);
+    }
+
+    .fab:focus-visible {
+      outline: none;
+      box-shadow: var(--shadow-md), var(--ring);
+    }
+
+    /* Responsiveness */
+    @media (max-width: 992px) {
+      .nav-icons {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: inline-flex;
+      }
+
+      .hero-bg {
+        background-attachment: scroll;
+      }
+
+      .fish-3d {
+        width: 30px;
+        height: 15px;
+      }
+
+      .join-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid {
+        margin: 64px 0;
+      }
+
+      .resources-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .infographic {
+        flex-direction: column;
+        height: auto;
+        align-items: stretch;
+        gap: 38px;
+      }
+
+      .info-column {
+        height: 62px !important;
+        border-radius: 12px;
+      }
+
+      .column-label,
+      .column-value {
+        position: static;
+        padding: 10px 12px;
+        text-align: left;
+      }
+
+      .fish-3d {
+        width: 25px;
+        height: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .float-animation,
+      .fish-3d {
+        animation: none !important;
+      }
+
+      .fade-in {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .hero-bg {
+        background-attachment: scroll;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Перейти к содержанию</a>
+
+  <div class="fish-container" aria-hidden="true"></div>
+
+  <header id="header">
+    <div class="container nav-container">
+      <div class="logo" aria-label="Чёрное море 2026">
+        <i class="fas fa-water" aria-hidden="true"></i>
+        <span class="logo-text">Чёрное море</span>
+        <span class="logo-year" aria-hidden="true">2026</span>
+      </div>
+
+      <nav class="nav-icons" aria-label="Основная навигация">
+        <a href="#home" class="nav-icon active" data-nav="home" aria-label="Главная">
+          <i class="fas fa-home" aria-hidden="true"></i>
+          <span>Главная</span>
+        </a>
+        <a href="#problem" class="nav-icon" data-nav="problem" aria-label="Проблемы">
+          <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+          <span>Проблемы</span>
+        </a>
+        <a href="#solutions" class="nav-icon" data-nav="solutions" aria-label="Решения">
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          <span>Решения</span>
+        </a>
+        <a href="#gallery" class="nav-icon" data-nav="gallery" aria-label="Галерея">
+          <i class="fas fa-images" aria-hidden="true"></i>
+          <span>Галерея</span>
+        </a>
+        <a href="#resources" class="nav-icon" data-nav="resources" aria-label="Ресурсы">
+          <i class="fas fa-book" aria-hidden="true"></i>
+          <span>Ресурсы</span>
+        </a>
+        <a href="#join" class="nav-icon" data-nav="join" aria-label="Присоединиться">
+          <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
+          <span>Действовать</span>
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn mobile-menu-btn" id="openMenu" type="button" aria-label="Открыть меню" aria-haspopup="dialog" aria-controls="mobileMenu">
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+  <aside class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Меню">
+    <div class="mobile-menu-header">
+      <div class="mobile-menu-title">Навигация</div>
+      <button class="icon-btn" id="closeMenu" type="button" aria-label="Закрыть меню">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="mobile-menu-content">
+      <nav class="mobile-nav" aria-label="Навигация (мобильная)">
+        <a href="#home" class="active" data-nav="home"><i class="fas fa-home" aria-hidden="true"></i>Главная</a>
+        <a href="#problem" data-nav="problem"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Проблемы</a>
+        <a href="#solutions" data-nav="solutions"><i class="fas fa-lightbulb" aria-hidden="true"></i>Решения</a>
+        <a href="#gallery" data-nav="gallery"><i class="fas fa-images" aria-hidden="true"></i>Галерея</a>
+        <a href="#resources" data-nav="resources"><i class="fas fa-book" aria-hidden="true"></i>Ресурсы</a>
+        <a href="#join" data-nav="join"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i>Действовать</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main id="main">
+    <section id="home" class="hero" aria-label="Вступление">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-content float-animation">
+          <h1>Экологический кризис <span class="hero-highlight">Чёрного моря</span></h1>
+          <p class="hero-subtitle">Комплексный анализ антропогенного воздействия на уникальную морскую экосистему. Реальные данные, проблемы и пути решения на 2026 год.</p>
+          <div class="hero-actions">
+            <a href="#problem" class="btn">
+              Узнать правду <i class="fas fa-arrow-down" aria-hidden="true"></i>
+            </a>
+            <a href="#join" class="btn btn-outline">
+              Что могу сделать я? <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="waves" aria-hidden="true">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#2a9d8f"></path>
+          <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#2a9d8f"></path>
+          <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#2a9d8f"></path>
+        </svg>
+      </div>
+    </section>
+
+    <div class="container" aria-label="Ключевые показатели">
+      <div class="stats-grid">
+        <div class="stat-card fade-in">
+          <div class="stat-number">-60%</div>
+          <div class="stat-text">кислорода на глубинах за 30 лет</div>
+        </div>
+        <div class="stat-card fade-in">
+          <div class="stat-number">94%</div>
+          <div class="stat-text">донных отложений загрязнены</div>
+        </div>
+        <div class="stat-card fade-in">
+          <div class="stat-number">&gt;600</div>
+          <div class="stat-text">инвазивных видов-вселенцев</div>
+        </div>
+        <div class="stat-card fade-in">
+          <div class="stat-number">20 тыс. км²</div>
+          <div class="stat-text">мёртвых зон без жизни</div>
+        </div>
+      </div>
+    </div>
+
+    <section id="problem" class="section" aria-label="Проблемы">
+      <div class="section-bg" style="background: url('https://avatars.mds.yandex.net/i?id=8fea2e0988b6b49fe9f3479ed7450ed7_sr-4809821-images-thumbs&n=13') center/cover;" aria-hidden="true"></div>
+      <div class="container">
+        <h2 class="section-title">Реальные угрозы Чёрному морю</h2>
+        <p class="section-subtitle">Системный анализ основных факторов деградации экосистемы</p>
+
+        <div class="accordion-container">
+          <div class="accordion-item fade-in">
+            <button class="accordion-btn" type="button" aria-expanded="false" aria-controls="acc-1" id="acc-btn-1">
+              <h3><i class="fas fa-tint" aria-hidden="true" style="color: #2a9d8f;"></i> Загрязнение речным стоком</h3>
+              <span class="accordion-icon" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
+            </button>
+            <div class="accordion-content" id="acc-1" role="region" aria-labelledby="acc-btn-1">
+              <p>Дунай, Днепр, Днестр ежегодно выносят в море 350–400 км³ воды, содержащей 80–100 тыс. тонн азота, 15–20 тыс. тонн фосфора. Это вызывает эвтрофикацию — цветение водорослей, которые, разлагаясь, поглощают кислород и создают «мёртвые зоны».</p>
+              <a href="https://en.wikipedia.org/wiki/Human_impact_on_river_systems" target="_blank" class="btn btn-outline" style="margin-top: 18px;">
+                Исследование речных систем <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="accordion-item fade-in">
+            <button class="accordion-btn" type="button" aria-expanded="false" aria-controls="acc-2" id="acc-btn-2">
+              <h3><i class="fas fa-ship" aria-hidden="true" style="color: #2a9d8f;"></i> Морской транспорт и разливы нефти</h3>
+              <span class="accordion-icon" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
+            </button>
+            <div class="accordion-content" id="acc-2" role="region" aria-labelledby="acc-btn-2">
+              <p>Ежегодный транзит 200+ млн тонн нефти. За 10 лет зафиксировано 47 крупных разливов. Нефтяная плёнка нарушает газообмен и фотосинтез фитопланктона. Токсичные компоненты накапливаются в организмах по пищевой цепи.</p>
+              <a href="https://en.wikipedia.org/wiki/Environmental_impact_of_shipping" target="_blank" class="btn btn-outline" style="margin-top: 18px;">
+                Влияние судоходства на экологию <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="accordion-item fade-in">
+            <button class="accordion-btn" type="button" aria-expanded="false" aria-controls="acc-3" id="acc-btn-3">
+              <h3><i class="fas fa-microscope" aria-hidden="true" style="color: #2a9d8f;"></i> Микропластик в пищевой цепи</h3>
+              <span class="accordion-icon" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
+            </button>
+            <div class="accordion-content" id="acc-3" role="region" aria-labelledby="acc-btn-3">
+              <p>Концентрация достигает 180–220 частиц/м³. Учёные находят микрочастицы в большинстве проб черноморской рыбы. Пластик адсорбирует токсины (пестициды, тяжёлые металлы), становясь «химической бомбой» для морских организмов и человека.</p>
+              <a href="https://dzen.ru/a/ZJlyXKdbNUmS2wwS" target="_blank" class="btn btn-outline" style="margin-top: 18px;">
+                Исследование микропластика <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="accordion-item fade-in">
+            <button class="accordion-btn" type="button" aria-expanded="false" aria-controls="acc-4" id="acc-btn-4">
+              <h3><i class="fas fa-fish" aria-hidden="true" style="color: #2a9d8f;"></i> Инвазивные виды и биоразнообразие</h3>
+              <span class="accordion-icon" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
+            </button>
+            <div class="accordion-content" id="acc-4" role="region" aria-labelledby="acc-btn-4">
+              <p>Гребневик Mnemiopsis leidyi сократил зоопланктон, вызвав кризис промысла. Рапана опустошила устричные и мидиевые банки. Ежегодно фиксируются новые виды-вселенцы, меняющие баланс экосистемы.</p>
+              <a href="https://ru.ruwiki.ru/wiki/Утрата_биоразнообразия" target="_blank" class="btn btn-outline" style="margin-top: 18px;">
+                Утрата биоразнообразия <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: rgba(28, 59, 106, 0.25);" aria-label="Инфографика">
+      <div class="container">
+        <h2 class="section-title">Распределение источников загрязнения</h2>
+        <p class="section-subtitle">Вклад различных факторов в деградацию экосистемы</p>
+
+        <div class="infographic" aria-label="Инфографика источников загрязнения">
+          <div class="info-column" style="height: 85%;" tabindex="0" role="group" aria-label="Речной сток 38%">
+            <div class="column-value">38%</div>
+            <div class="column-label">Речной сток<br />Дунай, Днепр, Днестр</div>
+          </div>
+          <div class="info-column" style="height: 65%;" tabindex="0" role="group" aria-label="Морской транспорт 27%">
+            <div class="column-value">27%</div>
+            <div class="column-label">Морской транспорт<br />Нефть, балластные воды</div>
+          </div>
+          <div class="info-column" style="height: 45%;" tabindex="0" role="group" aria-label="Промышленные стоки 16%">
+            <div class="column-value">16%</div>
+            <div class="column-label">Промышленные стоки<br />Химия, металлургия</div>
+          </div>
+          <div class="info-column" style="height: 55%;" tabindex="0" role="group" aria-label="Сельское хозяйство 14%">
+            <div class="column-value">14%</div>
+            <div class="column-label">Сельское хозяйство<br />Удобрения, пестициды</div>
+          </div>
+          <div class="info-column" style="height: 35%;" tabindex="0" role="group" aria-label="Бытовые отходы 5%">
+            <div class="column-value">5%</div>
+            <div class="column-label">Бытовые отходы<br />Пластик, канализация</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section" aria-label="Галерея">
+      <div class="container">
+        <h2 class="section-title">Чёрное море: красота под угрозой</h2>
+        <p class="section-subtitle">Уникальная экосистема, требующая защиты</p>
+
+        <div class="gallery-grid">
+          <div class="gallery-item fade-in" role="button" tabindex="0" data-src="https://avatars.mds.yandex.net/i?id=c98348e63fc39696d5dd37178280eee1_l-5877774-images-thumbs&n=13" data-title="Побережье Кавказа" data-caption="Чистые воды у горных берегов" aria-label="Открыть фото: Побережье Кавказа">
+            <img loading="lazy" decoding="async" src="https://avatars.mds.yandex.net/i?id=c98348e63fc39696d5dd37178280eee1_l-5877774-images-thumbs&n=13" alt="Черное море" class="gallery-img" />
+            <div class="gallery-overlay">
+              <h3>Побережье Кавказа</h3>
+              <p>Чистые воды у горных берегов</p>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" role="button" tabindex="0" data-src="https://photocentra.ru/images/main86/862505_main.jpg" data-title="Закат в Крыму" data-caption="Уникальные экосистемы мелководий" aria-label="Открыть фото: Закат в Крыму">
+            <img loading="lazy" decoding="async" src="https://photocentra.ru/images/main86/862505_main.jpg" alt="Закат на Черном море" class="gallery-img" />
+            <div class="gallery-overlay">
+              <h3>Закат в Крыму</h3>
+              <p>Уникальные экосистемы мелководий</p>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" role="button" tabindex="0" data-src="https://sudak-leshoz.ru/wp-content/uploads/2024/02/12022024-05.jpg" data-title="Дельфины-афалины" data-caption="Популяция сократилась на 70%" aria-label="Открыть фото: Дельфины-афалины">
+            <img loading="lazy" decoding="async" src="https://sudak-leshoz.ru/wp-content/uploads/2024/02/12022024-05.jpg" alt="Черноморские дельфины" class="gallery-img" />
+            <div class="gallery-overlay">
+              <h3>Дельфины-афалины</h3>
+              <p>Популяция сократилась на 70%</p>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" role="button" tabindex="0" data-src="https://avatars.mds.yandex.net/i?id=482ca5b58fd9c1bf2c0df1397ba5a581_l-9888116-images-thumbs&n=13" data-title="Пластиковое загрязнение" data-caption="Берега после шторма" aria-label="Открыть фото: Пластиковое загрязнение">
+            <img loading="lazy" decoding="async" src="https://avatars.mds.yandex.net/i?id=482ca5b58fd9c1bf2c0df1397ba5a581_l-9888116-images-thumbs&n=13" alt="Загрязнение моря" class="gallery-img" />
+            <div class="gallery-overlay">
+              <h3>Пластиковое загрязнение</h3>
+              <p>Берега после шторма</p>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" role="button" tabindex="0" data-src="https://avatars.mds.yandex.net/i?id=e5bdd10d8298fc5bc27bc9efdecdd589_l-3923094-images-thumbs&n=13" data-title="Экологический мониторинг" data-caption="Отбор проб воды и донных отложений" aria-label="Открыть фото: Экологический мониторинг">
+            <img loading="lazy" decoding="async" src="https://avatars.mds.yandex.net/i?id=e5bdd10d8298fc5bc27bc9efdecdd589_l-3923094-images-thumbs&n=13" alt="Научные исследования" class="gallery-img" />
+            <div class="gallery-overlay">
+              <h3>Экологический мониторинг</h3>
+              <p>Отбор проб воды и донных отложений</p>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" role="button" tabindex="0" data-src="https://avatars.mds.yandex.net/i?id=8fea2e0988b6b49fe9f3479ed7450ed7_sr-4809821-images-thumbs&n=13" data-title="Филлофора" data-caption="Красные водоросли — индикатор чистоты" aria-label="Открыть фото: Филлофора">
+            <img loading="lazy" decoding="async" src="https://avatars.mds.yandex.net/i?id=8fea2e0988b6b49fe9f3479ed7450ed7_sr-4809821-images-thumbs&n=13" alt="Водоросли Черного моря" class="gallery-img" />
+            <div class="gallery-overlay">
+              <h3>Филлофора</h3>
+              <p>Красные водоросли — индикатор чистоты</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Карта проблемных зон">
+      <div class="container">
+        <h2 class="section-title">География экологического бедствия</h2>
+        <p class="section-subtitle">Наиболее загрязнённые районы Чёрного моря</p>
+
+        <div class="map-container fade-in">
+          <img loading="lazy" decoding="async" src="https://avatars.mds.yandex.net/i?id=db3dad0a4f33e57ef72f20d6d6e0df89_l-4299853-images-thumbs&n=13" alt="Карта Черного моря" class="map-image" />
+          <div class="map-overlay">
+            <h2 style="color: var(--gold); margin-bottom: 14px; font-family: 'Raleway', sans-serif; font-weight: 800;">Проблемные зоны:</h2>
+            <ul style="list-style: none; font-size: 1.1rem; color: rgba(255,255,255,0.92);">
+              <li style="margin-bottom: 12px;"><i class="fas fa-map-marker-alt" aria-hidden="true" style="color: var(--coral); margin-right: 10px;"></i> Северо-западный шельф (эвтрофикация)</li>
+              <li style="margin-bottom: 12px;"><i class="fas fa-map-marker-alt" aria-hidden="true" style="color: var(--coral); margin-right: 10px;"></i> Керченский пролив (нефтяное загрязнение)</li>
+              <li style="margin-bottom: 12px;"><i class="fas fa-map-marker-alt" aria-hidden="true" style="color: var(--coral); margin-right: 10px;"></i> Батуми–Поти (промышленные стоки)</li>
+              <li style="margin-bottom: 12px;"><i class="fas fa-map-marker-alt" aria-hidden="true" style="color: var(--coral); margin-right: 10px;"></i> Варна–Бургас (бытовые и сельскохозяйственные стоки)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="solutions" class="section" style="background: rgba(42, 157, 143, 0.05);" aria-label="Решения">
+      <div class="container">
+        <h2 class="section-title">Пути спасения Чёрного моря</h2>
+        <p class="section-subtitle">Конкретные меры по восстановлению экосистемы</p>
+
+        <div class="resources-grid">
+          <div class="resource-card fade-in">
+            <div class="resource-icon"><i class="fas fa-filter" aria-hidden="true"></i></div>
+            <h3>Современные очистные сооружения</h3>
+            <p>Внедрение систем третичной очистки сточных вод в причерноморских городах. Технологии позволяют удалять до 98% загрязнений.</p>
+            <a href="https://watermagazine.ru/novosti/tekhnika-tekhnologii/24295-na-ochistnykh-sooruzheniyakh-ao-karel-skij-okatysh-vnedrena-fitoochistnaya-sistema.html" target="_blank" class="btn btn-outline" style="margin-top: auto;">
+              Технологии очистки <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="resource-card fade-in">
+            <div class="resource-icon"><i class="fas fa-recycle" aria-hidden="true"></i></div>
+            <h3>Циркулярная экономика</h3>
+            <p>Создание замкнутых циклов водопользования на предприятиях. Это сокращает сбросы и снижает нагрузку на прибрежные воды.</p>
+            <a href="https://watermagazine.ru/novosti/ot-pervogo-litsa/21502-tekhnicheskoe-perevooruzhenie-odno-iz-prioritetnykh-napravlenij-nashej-deyatelnosti.html" target="_blank" class="btn btn-outline" style="margin-top: auto;">
+              Кейсы водопользования <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="resource-card fade-in">
+            <div class="resource-icon"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
+            <h3>Морские охраняемые районы</h3>
+            <p>Расширение сети ООПТ и усиление контроля. Практика показывает рост биоразнообразия при стабильной охране ключевых акваторий.</p>
+            <a href="https://ru.ruwiki.ru/wiki/Черноморский_биосферный_заповедник" target="_blank" class="btn btn-outline" style="margin-top: auto;">
+              Черноморский заповедник <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resources" class="section" aria-label="Ресурсы">
+      <div class="container">
+        <h2 class="section-title">Русскоязычные ресурсы</h2>
+        <p class="section-subtitle">Актуальные исследования и организации</p>
+
+        <div class="resources-grid">
+          <div class="resource-card fade-in">
+            <div class="resource-icon"><i class="fas fa-university" aria-hidden="true"></i></div>
+            <h3>Институт океанологии РАН</h3>
+            <p>Фундаментальные исследования экосистемы Чёрного моря. Экспедиции, мониторинг состояния, прогнозы.</p>
+            <a href="http://www.ocean.ru/" target="_blank" class="btn btn-outline" style="margin-top: auto;">
+              Перейти на сайт <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="resource-card fade-in">
+            <div class="resource-icon"><i class="fas fa-leaf" aria-hidden="true"></i></div>
+            <h3>Всероссийское общество охраны природы</h3>
+            <p>Общественный мониторинг, экопросвещение, акции по очистке побережья. Проекты по Чёрному морю.</p>
+            <a href="https://voop.eco/chernoe-more" target="_blank" class="btn btn-outline" style="margin-top: auto;">
+              Проекты ВООП <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="resource-card fade-in">
+            <div class="resource-icon"><i class="fas fa-book" aria-hidden="true"></i></div>
+            <h3>Научная электронная библиотека</h3>
+            <p>База научных публикаций по экологии Чёрного моря: статьи, отчёты, диссертации.</p>
+            <a href="https://moluch.ru/archive/159/44713" target="_blank" class="btn btn-outline" style="margin-top: auto;">
+              Научные публикации <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="resource-card fade-in">
+            <div class="resource-icon"><i class="fas fa-tv" aria-hidden="true"></i></div>
+            <h3>Телеканал «Наука»</h3>
+            <p>Документальные фильмы и репортажи о состоянии моря и экспедициях.</p>
+            <a href="https://yandex.ru/video/preview/9935039793384677583" target="_blank" class="btn btn-outline" style="margin-top: auto;">
+              Смотреть программы <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="resource-card fade-in">
+            <div class="resource-icon"><i class="fas fa-newspaper" aria-hidden="true"></i></div>
+            <h3>Журнал «Экология и жизнь»</h3>
+            <p>Популярные статьи о состоянии Чёрного моря, интервью с учёными, отчёты экспедиций.</p>
+            <a href="https://elementy.ru/nauchno-populyarnaya_biblioteka/430564/Ekologiya_i_zhizn_1_2008" target="_blank" class="btn btn-outline" style="margin-top: auto;">
+              Архив журнала <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="resource-card fade-in">
+            <div class="resource-icon"><i class="fas fa-hands-helping" aria-hidden="true"></i></div>
+            <h3>Эко-волонтёрство</h3>
+            <p>Практические проекты по очистке побережья, мониторингу, восстановлению экосистем. Присоединяйтесь!</p>
+            <a href="https://sea-friends.org" target="_blank" class="btn btn-outline" style="margin-top: auto;">
+              Стать волонтёром <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 70px;">
+          <a href="#home" class="btn"><i class="fas fa-arrow-up" aria-hidden="true"></i> Вернуться наверх</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="join" class="section" style="background: rgba(231, 111, 81, 0.04);" aria-label="Действовать">
+      <div class="container">
+        <h2 class="section-title">Что можно сделать уже сегодня</h2>
+        <p class="section-subtitle">Небольшие действия множатся: чем больше людей меняют привычки и поддерживают проекты — тем быстрее заметен эффект.</p>
+
+        <div class="join-grid">
+          <div class="join-card fade-in">
+            <h3 style="font-family: 'Raleway', sans-serif; font-size: 1.55rem; font-weight: 800;">План действий (3 шага)</h3>
+            <div class="join-steps">
+              <div class="step">
+                <div class="step-badge">1</div>
+                <div>
+                  <h4>Снизить пластик</h4>
+                  <p>Многоразовая бутылка/пакет, отказ от одноразовых трубочек и стаканов — самый быстрый вклад.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-badge">2</div>
+                <div>
+                  <h4>Поддержать мониторинг</h4>
+                  <p>Делиться проверенными источниками, участвовать в уборках, поддерживать локальные инициативы и НКО.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-badge">3</div>
+                <div>
+                  <h4>Сообщать о нарушениях</h4>
+                  <p>Фиксировать и передавать информацию о сбросах/разливах по официальным каналам.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="join-card fade-in">
+            <h3 style="font-family: 'Raleway', sans-serif; font-size: 1.55rem; font-weight: 800;">Оставить заявку</h3>
+            <p style="color: var(--muted); margin-top: 8px;">Форма учебная: данные никуда не отправляются, только имитация отправки.</p>
+
+            <form id="joinForm" novalidate>
+              <div class="field">
+                <label for="name">Имя</label>
+                <input id="name" name="name" type="text" placeholder="Например: Алина" autocomplete="name" required minlength="2" />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label for="message">Чем вы готовы помочь?</label>
+                <textarea id="message" name="message" placeholder="Волонтёрство, уборки, донаты, распространение информации…" required minlength="10"></textarea>
+              </div>
+              <div class="form-error" id="formError">Проверьте поля: имя (≥2), корректный email, сообщение (≥10).</div>
+              <button class="btn" type="submit">Отправить <i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+              <div class="form-hint">Нажимая «Отправить», вы подтверждаете, что согласны на обработку данных в учебных целях.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-image-section fade-in" aria-label="Призыв">
+      <div class="container">
+        <div class="final-image-container">
+          <img loading="lazy" decoding="async" src="https://ддт.фокино-обр.рф/wp-content/uploads/2025/10/1-4-4.jpg" alt="Призыв к защите Черного моря" />
+        </div>
+        <p class="final-image-caption">Будущее Чёрного моря зависит от наших действий сегодня. Каждый может внести свой вклад.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-about">
+          <div class="footer-logo">Чёрное море <span class="year" aria-hidden="true">2026</span></div>
+          <p>Проект независимого экологического мониторинга. Данные основаны на открытых публикациях и обзорах за 2023–2026 годы.</p>
+          <p style="margin-top: 16px; color: var(--gold); font-weight: 700;">
+            <i class="fas fa-exclamation-circle" aria-hidden="true"></i> Требуются срочные меры по спасению уникальной экосистемы!
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Навигация</h4>
+          <ul>
+            <li><a href="#home"><i class="fas fa-chevron-right" aria-hidden="true"></i> Главная</a></li>
+            <li><a href="#problem"><i class="fas fa-chevron-right" aria-hidden="true"></i> Проблемы</a></li>
+            <li><a href="#solutions"><i class="fas fa-chevron-right" aria-hidden="true"></i> Решения</a></li>
+            <li><a href="#gallery"><i class="fas fa-chevron-right" aria-hidden="true"></i> Галерея</a></li>
+            <li><a href="#resources"><i class="fas fa-chevron-right" aria-hidden="true"></i> Ресурсы</a></li>
+            <li><a href="#join"><i class="fas fa-chevron-right" aria-hidden="true"></i> Действовать</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Экстренные контакты</h4>
+          <ul>
+            <li><a href="tel:+78002001234"><i class="fas fa-phone" aria-hidden="true"></i> Горячая линия Росприроднадзора</a></li>
+            <li><a href="https://www.mnr.gov.ru/" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Минприроды России</a></li>
+            <li><a href="https://rpn.gov.ru/" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Росприроднадзор</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>&copy; <span class="year" id="year">2026</span> Проект «Экология Чёрного моря». Независимый мониторинг.</p>
+        <p style="margin-top: 10px;">Все данные открыты для использования со ссылкой на источник.</p>
+        <p style="margin-top: 18px; color: var(--coral); font-weight: 700;">
+          <i class="fas fa-heartbeat" aria-hidden="true"></i> Чёрное море живёт, пока мы боремся за него!
+        </p>
+      </div>
+    </div>
+
+    <div class="waves" style="transform: rotate(180deg);" aria-hidden="true">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#0a1f44"></path>
+      </svg>
+    </div>
+  </footer>
+
+  <button class="fab" id="toTop" type="button" aria-label="Наверх">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Просмотр изображения">
+    <div class="lightbox-dialog" role="document">
+      <div class="lightbox-bar">
+        <div class="lightbox-title" id="lightboxTitle">Изображение</div>
+        <button class="icon-btn" id="closeLightbox" type="button" aria-label="Закрыть просмотр">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="lightbox-content">
+        <img id="lightboxImg" alt="" />
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <div id="toastText"><strong>Готово.</strong> Сообщение отправлено.</div>
+    <button class="icon-btn" id="toastClose" type="button" aria-label="Закрыть уведомление"><i class="fas fa-times" aria-hidden="true"></i></button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const header = document.getElementById('header');
+      const toTop = document.getElementById('toTop');
+
+      const openMenuBtn = document.getElementById('openMenu');
+      const closeMenuBtn = document.getElementById('closeMenu');
+      const menuOverlay = document.getElementById('menuOverlay');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxTitle = document.getElementById('lightboxTitle');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const closeLightboxBtn = document.getElementById('closeLightbox');
+
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toastText');
+      const toastClose = document.getElementById('toastClose');
+
+      const joinForm = document.getElementById('joinForm');
+      const formError = document.getElementById('formError');
+
+      document.querySelectorAll('a[target="_blank"]').forEach((a) => {
+        a.setAttribute('rel', 'noopener noreferrer');
+      });
+
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = '2026';
+
+      function openMenu() {
+        document.body.classList.add('menu-open');
+        menuOverlay.setAttribute('aria-hidden', 'false');
+        mobileMenu.focus();
+      }
+
+      function closeMenu() {
+        document.body.classList.remove('menu-open');
+        menuOverlay.setAttribute('aria-hidden', 'true');
+        if (openMenuBtn) openMenuBtn.focus();
+      }
+
+      if (openMenuBtn) openMenuBtn.addEventListener('click', openMenu);
+      if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
+      if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (document.body.classList.contains('menu-open')) closeMenu();
+          if (lightbox.classList.contains('open')) closeLightbox();
+        }
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href');
+          if (!targetId || targetId === '#') return;
+          const target = document.querySelector(targetId);
+          if (!target) return;
+
+          e.preventDefault();
+          closeMenu();
+
+          const y = target.getBoundingClientRect().top + window.scrollY - 84;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        });
+      });
+
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 100) {
+          header.style.background = 'rgba(10, 31, 68, 0.95)';
+          header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.4)';
+        } else {
+          header.style.background = 'rgba(10, 31, 68, 0.85)';
+          header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
+        }
+
+        if (window.scrollY > 600) {
+          toTop.classList.add('show');
+        } else {
+          toTop.classList.remove('show');
+        }
+      });
+
+      if (toTop) {
+        toTop.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      const fadeElements = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      fadeElements.forEach((el) => observer.observe(el));
+
+      function setActiveNav(id) {
+        const navLinks = document.querySelectorAll('[data-nav]');
+        navLinks.forEach((a) => {
+          a.classList.toggle('active', a.getAttribute('data-nav') === id);
+        });
+      }
+
+      const sections = ['home', 'problem', 'solutions', 'gallery', 'resources', 'join']
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+
+      const spy = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((e) => e.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (visible && visible.target && visible.target.id) setActiveNav(visible.target.id);
+        },
+        { rootMargin: '-20% 0px -70% 0px', threshold: [0.1, 0.2, 0.35] }
+      );
+      sections.forEach((s) => spy.observe(s));
+
+      document.querySelectorAll('.accordion-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const contentId = btn.getAttribute('aria-controls');
+          const content = contentId ? document.getElementById(contentId) : null;
+          const icon = btn.querySelector('.accordion-icon');
+
+          document.querySelectorAll('.accordion-btn[aria-expanded="true"]').forEach((openBtn) => {
+            if (openBtn === btn) return;
+            openBtn.setAttribute('aria-expanded', 'false');
+            const openId = openBtn.getAttribute('aria-controls');
+            const openContent = openId ? document.getElementById(openId) : null;
+            if (openContent) openContent.classList.remove('active');
+            const openIcon = openBtn.querySelector('.accordion-icon');
+            if (openIcon) openIcon.classList.remove('active');
+          });
+
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          if (content) content.classList.toggle('active', !expanded);
+          if (icon) icon.classList.toggle('active', !expanded);
+        });
+      });
+
+      const firstAccordionBtn = document.querySelector('.accordion-btn');
+      if (firstAccordionBtn) firstAccordionBtn.click();
+
+      function openLightbox(src, title, caption) {
+        lightboxImg.src = src;
+        lightboxImg.alt = title || 'Изображение';
+        lightboxTitle.textContent = title || 'Изображение';
+        lightboxCaption.textContent = caption || '';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        closeLightboxBtn.focus();
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImg.src = '';
+      }
+
+      closeLightboxBtn.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.querySelectorAll('.gallery-item').forEach((item) => {
+        const open = () => {
+          const src = item.getAttribute('data-src');
+          const title = item.getAttribute('data-title');
+          const caption = item.getAttribute('data-caption');
+          if (!src) return;
+          openLightbox(src, title, caption);
+        };
+
+        item.addEventListener('click', open);
+        item.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            open();
+          }
+        });
+      });
+
+      function showToast(messageHtml) {
+        toastText.innerHTML = messageHtml;
+        toast.classList.add('show');
+        window.clearTimeout(showToast._t);
+        showToast._t = window.setTimeout(() => toast.classList.remove('show'), 4200);
+      }
+
+      toastClose.addEventListener('click', () => toast.classList.remove('show'));
+
+      if (joinForm) {
+        joinForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const name = joinForm.elements.namedItem('name');
+          const email = joinForm.elements.namedItem('email');
+          const message = joinForm.elements.namedItem('message');
+
+          const nameOk = name && String(name.value || '').trim().length >= 2;
+          const emailOk = email && /^\S+@\S+\.\S+$/.test(String(email.value || '').trim());
+          const messageOk = message && String(message.value || '').trim().length >= 10;
+
+          if (!nameOk || !emailOk || !messageOk) {
+            formError.classList.add('visible');
+            showToast('<strong>Ошибка.</strong> Проверьте заполнение формы.');
+            return;
+          }
+
+          formError.classList.remove('visible');
+          joinForm.reset();
+          showToast('<strong>Спасибо!</strong> Заявка принята (учебная отправка).');
+        });
+      }
+
+      function create3DFish() {
+        const fishContainer = document.querySelector('.fish-container');
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!fishContainer || prefersReducedMotion) return;
+
+        const animations = ['swim3D-1-forward', 'swim3D-2-forward', 'swim3D-3-forward'];
+        const count = window.innerWidth < 768 ? 8 : 12;
+
+        for (let i = 0; i < count; i++) {
+          const fish = document.createElement('div');
+          fish.className = 'fish-3d';
+
+          const animIndex = Math.floor(Math.random() * animations.length);
+          fish.style.animationName = animations[animIndex];
+
+          const duration = Math.random() * 10 + 15;
+          fish.style.animationDuration = duration + 's';
+
+          const delay = Math.random() * 20;
+          fish.style.animationDelay = delay + 's';
+
+          fish.style.top = Math.random() * 85 + 5 + '%';
+
+          const fishBody = document.createElement('div');
+          fishBody.className = 'fish-body';
+
+          const fishTail = document.createElement('div');
+          fishTail.className = 'fish-tail';
+
+          const fishFin = document.createElement('div');
+          fishFin.className = 'fish-fin';
+
+          const fishEye = document.createElement('div');
+          fishEye.className = 'fish-eye';
+
+          fishBody.appendChild(fishTail);
+          fishBody.appendChild(fishFin);
+          fishBody.appendChild(fishEye);
+          fish.appendChild(fishBody);
+          fishContainer.appendChild(fish);
+        }
+      }
+
+      create3DFish();
+    });
+  </script>
+</body>
+</html>

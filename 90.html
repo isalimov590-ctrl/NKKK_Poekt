@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Почему Linux: полный гайд с этапами</title>
+    <style>
+        /* Стиль в духе Linux-терминала: чёрный фон, зелёный текст, моноширинный шрифт */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0e0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Courier New', Courier, 'Ubuntu Mono', 'Fira Code', monospace;
+            padding: 20px;
+        }
+
+        .terminal {
+            width: 100%;
+            max-width: 1000px;
+            background-color: #0c0c0c;
+            border: 2px solid #2e7d32;
+            border-radius: 10px 10px 8px 8px;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.2), 0 0 10px #1b5e20;
+            overflow: hidden;
+            color: #33ff33;
+            line-height: 1.5;
+        }
+
+        .terminal-bar {
+            background: linear-gradient(145deg, #2b2b2b, #1e1e1e);
+            padding: 8px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #2e7d32;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .bar-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .bar-btn {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .close { background-color: #f95c5c; border: 1px solid #b14e4e; }
+        .minimize { background-color: #f9c45c; border: 1px solid #b58b3a; }
+        .maximize { background-color: #5cf95c; border: 1px solid #3b8b3b; }
+
+        .bar-title {
+            color: #b0ffb0;
+            text-shadow: 0 0 5px #00cc00;
+        }
+
+        .terminal-body {
+            padding: 25px 25px 30px 25px;
+            background-color: #0c0c0c;
+            background-image: radial-gradient(rgba(0, 150, 0, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .tux-ascii {
+            color: #80ff80;
+            font-size: 0.9rem;
+            line-height: 1.2;
+            text-align: center;
+            margin-bottom: 15px;
+            text-shadow: 0 0 3px #00ff00;
+            white-space: pre;
+            background: #111;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #2e7d32;
+        }
+
+        .man-header {
+            text-align: center;
+            font-weight: bold;
+            color: #d0ffd0;
+            margin: 20px 0 15px 0;
+            border-bottom: 1px dashed #2e7d32;
+            padding-bottom: 8px;
+            text-transform: uppercase;
+            word-spacing: 8px;
+            font-size: 1.1rem;
+        }
+
+        .section-title {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-top: 22px;
+            margin-bottom: 6px;
+            border-left: 4px solid #2e7d32;
+            padding-left: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px #1b5e20;
+        }
+
+        .text-block {
+            margin-left: 25px;
+            margin-bottom: 10px;
+            color: #adffad;
+            font-size: 1rem;
+        }
+
+        .option-list {
+            margin: 10px 0 15px 40px;
+            list-style: none;
+        }
+
+        .option-list li {
+            margin-bottom: 14px;
+            position: relative;
+        }
+
+        .option-list li strong {
+            color: #80ff80;
+            background: #1e2a1e;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            border: 1px solid #2e7d32;
+            margin-right: 12px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            display: inline-block;
+            min-width: 150px;
+        }
+
+        .option-desc {
+            display: inline;
+            color: #cdffcd;
+        }
+
+        /* Стили для нумерованных этапов */
+        .steps-list {
+            margin: 15px 0 20px 45px;
+            counter-reset: step-counter;
+            list-style: none;
+        }
+
+        .steps-list li {
+            counter-increment: step-counter;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .steps-list li::before {
+            content: "[" counter(step-counter) "]";
+            color: #b3ffb3;
+            font-weight: bold;
+            background: #1e3a1e;
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid #2e7d32;
+            margin-right: 15px;
+            font-size: 0.95rem;
+            display: inline-block;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .step-title {
+            color: #e0ffe0;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .step-desc {
+            display: block;
+            margin-left: 70px;
+            color: #cdffcd;
+        }
+
+        .step-desc p {
+            margin-top: 5px;
+        }
+
+        .step-desc code {
+            background: #1a2a1a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #1e5e1e;
+            color: #b3ffb3;
+        }
+
+        a {
+            color: #88ff88;
+            text-decoration: none;
+            border-bottom: 1px dotted #2e7d32;
+        }
+        a:hover {
+            color: #ffffff;
+            border-bottom: 1px solid #88ff88;
+            text-shadow: 0 0 5px #00ff00;
+        }
+
+        .prompt-line {
+            margin-top: 40px;
+            border-top: 1px solid #1e4a1e;
+            padding-top: 18px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            color: #88ff88;
+        }
+
+        .prompt-sign {
+            color: #b3ffb3;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .blinking-cursor {
+            width: 12px;
+            height: 22px;
+            background-color: #33ff33;
+            display: inline-block;
+            animation: blink 1.2s step-end infinite;
+            margin-left: 5px;
+            box-shadow: 0 0 8px #00ff00;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .man-footer {
+            margin-top: 25px;
+            color: #4f8a4f;
+            font-size: 0.85rem;
+            text-align: center;
+            border-top: 1px solid #1e4a1e;
+            padding-top: 12px;
+        }
+
+        .command {
+            background: #1a1f1a;
+            display: inline-block;
+            padding: 0 8px;
+            border-radius: 4px;
+            border: 1px solid #1e4a1e;
+            color: #b3ffb3;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #1e4a1e;
+            margin: 20px 0;
+        }
+
+        p, li, pre {
+            text-shadow: 0 0 3px #004d00;
+        }
+
+        @media (max-width: 600px) {
+            .terminal-body { padding: 15px; }
+            .option-list { margin-left: 15px; }
+            .option-list li strong { display: block; margin-bottom: 5px; }
+            .steps-list { margin-left: 15px; }
+            .steps-list li::before { display: block; margin-bottom: 5px; }
+            .step-desc { margin-left: 0; }
+            .tux-ascii { font-size: 0.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <div class="terminal-bar">
+            <div class="bar-buttons">
+                <span class="bar-btn close"></span>
+                <span class="bar-btn minimize"></span>
+                <span class="bar-btn maximize"></span>
+            </div>
+            <div class="bar-title">user@linux-guide: ~/полный-гайд</div>
+            <div style="opacity:0;">dummy</div>
+        </div>
+
+        <div class="terminal-body">
+            <pre class="tux-ascii">
+    .--.
+   |o_o |
+   |:_/ |
+  //   \ \
+ (|     | )
+/'\_   _/`\
+\___)=(___/
+            </pre>
+
+            <div class="man-header">
+                SWITCH-TO-LINUX(1)           Руководство           SWITCH-TO-LINUX(1)
+            </div>
+
+            <!-- ИМЯ -->
+            <div class="section-title">ИМЯ</div>
+            <p class="text-block">
+                <strong>switch-to-linux</strong> — подробное руководство: почему и как перейти на Linux.
+            </p>
+
+            <!-- СИНТАКСИС -->
+            <div class="section-title">СИНТАКСИС</div>
+            <p class="text-block">
+                <span class="command">curl -sL https://linux-guide.org | bash</span><br>
+                <span class="command">wget -O- https://linux-guide.org/install.sh | sh</span><br>
+                или просто читайте дальше и действуйте поэтапно.
+            </p>
+
+            <!-- ОПИСАНИЕ (расширенное) -->
+            <div class="section-title">ОПИСАНИЕ</div>
+            <p class="text-block">
+                Linux — это ядро и целая экосистема свободных операционных систем. 
+                Сегодня Linux работает везде: от суперкомпьютеров и серверов до смартфонов (Android) и умных часов. 
+                Для домашнего использования существуют сотни дистрибутивов — готовых сборок с программами и графическим окружением.
+            </p>
+            <p class="text-block">
+                Переход на Linux даёт вам <strong>контроль, безопасность, скорость</strong> и огромное сообщество. 
+                Ниже перечислены основные преимущества (опции), а затем — чёткие этапы для новичков.
+            </p>
+
+            <!-- ПРЕИМУЩЕСТВА (с небольшими дополнениями) -->
+            <div class="section-title">ПРЕИМУЩЕСТВА (ОПЦИИ)</div>
+            <ul class="option-list">
+                <li><strong>--свобода</strong> <span class="option-desc">Открытый исходный код: вы можете изучать, менять и делиться. Никаких лицензионных отчислений.</span></li>
+                <li><strong>--безопасность</strong> <span class="option-desc">Модель прав доступа, репозитории с проверенным ПО, быстрое исправление уязвимостей.</span></li>
+                <li><strong>--стабильность</strong> <span class="option-desc">Системы на Linux работают годами без перезагрузки и «тормозов».</span></li>
+                <li><strong>--настройка</strong> <span class="option-desc">Вы выбираете дистрибутив, окружение рабочего стола, темы — всё под ваш вкус.</span></li>
+                <li><strong>--сообщество</strong> <span class="option-desc">Миллионы пользователей и разработчиков помогут в любой момент.</span></li>
+                <li><strong>--производительность</strong> <span class="option-desc">Linux отлично работает даже на старых компьютерах (Xubuntu, Lubuntu).</span></li>
+                <li><strong>--пакетные-менеджеры</strong> <span class="option-desc">Установка программ одной командой: apt, dnf, pacman, snap, flatpak.</span></li>
+                <li><strong>--конфиденциальность</strong> <span class="option-desc">Никакой телеметрии, сбора данных или рекламы. Вы — хозяин.</span></li>
+                <li><strong>--совместимость</strong> <span class="option-desc">Поддержка всех основных языков программирования, контейнеров (Docker) и DevOps-инструментов.</span></li>
+            </ul>
+
+            <!-- НОВЫЙ РАЗДЕЛ: ЭТАПЫ ПЕРЕХОДА (подробно) -->
+            <div class="section-title">ЭТАПЫ ПЕРЕХОДА</div>
+            <p class="text-block">Следуйте этим шагам, чтобы перейти на Linux без боли и стресса.</p>
+            
+            <ul class="steps-list">
+                <li>
+                    <span class="step-title">Выбор дистрибутива</span>
+                    <div class="step-desc">
+                        <p>Для новичков лучше всего подходят дистрибутивы на базе <strong>Ubuntu</strong> или <strong>Fedora</strong>. Они имеют большое сообщество, много инструкций и просты в установке.</p>
+                        <p>• <a href="https://ubuntu.com/">Ubuntu</a> — самый популярный, много софта, LTS-версии с 5-летней поддержкой.<br>
+                        • <a href="https://linuxmint.com/">Linux Mint</a> — ещё проще, интерфейс похож на Windows, отличный выбор.<br>
+                        • <a href="https://getfedora.org/">Fedora</a> — свежие технологии, стабильность, рекомендована для разработчиков.<br>
+                        • <a href="https://www.debian.org/">Debian</a> — максимально стабильный, но требует чуть больше знаний.<br>
+                        Для старых ПК: <strong>Xubuntu</strong>, <strong>Lubuntu</strong> (лёгкие окружения).</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="step-title">Скачивание образа и подготовка носителя</span>
+                    <div class="step-desc">
+                        <p>Зайдите на сайт выбранного дистрибутива и скачайте ISO-образ (обычно бесплатно). Затем запишите его на USB-флешку (минимум 2–4 ГБ).</p>
+                        <p>В Windows используйте <strong>Rufus</strong> или <strong>Balena Etcher</strong>. В Linux/macOS можно использовать <code>dd</code> или тот же Etcher.<br>
+                        <span class="command"># Пример записи через dd в Linux:</span><br>
+                        sudo dd if=образ.iso of=/dev/sdX bs=4M status=progress &amp;&amp; sync</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="step-title">Загрузка в live-режиме</span>
+                    <div class="step-desc">
+                        <p>Вставьте флешку, перезагрузите компьютер и выберите загрузку с USB (обычно клавиши F2, F12, Del или Esc при включении). Загрузится live-система — это полноценный Linux, работающий с флешки, без установки на жёсткий диск.</p>
+                        <p>Проверьте, всё ли работает: Wi-Fi, звук, видео. Если да — можно смело устанавливать.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="step-title">Установка на диск</span>
+                    <div class="step-desc">
+                        <p>Запустите ярлык «Установить <дистрибутив>» на рабочем столе live-режима. В процессе установки:</p>
+                        <p>• Выберите язык, часовой пояс, раскладку клавиатуры.<br>
+                        • Разметка диска: можно выбрать «автоматически» (займёт весь диск) или «вручную» (создать разделы отдельно для /, /home, подкачки). Для новичков лучше автоматический вариант.<br>
+                        • Если оставляете Windows, выберите «Установить рядом с Windows» — создастся двойная загрузка.<br>
+                        • Укажите имя пользователя и пароль.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="step-title">Первоначальная настройка и обновления</span>
+                    <div class="step-desc">
+                        <p>После перезагрузки войдите в систему. Сразу откройте терминал и выполните обновление:</p>
+                        <p><span class="command">sudo apt update &amp;&amp; sudo apt upgrade</span> (для Ubuntu/Debian)<br>
+                        <span class="command">sudo dnf upgrade</span> (для Fedora)<br>
+                        Затем установите нужные программы через центр приложений или командой.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="step-title">Освоение и сообщество</span>
+                    <div class="step-desc">
+                        <p>Не бойтесь терминала — он упрощает многие вещи. Начните с основных команд: <code>ls, cd, cp, mv, rm, sudo, apt</code>. Гуглите вопросы — на русском есть сайты типа <strong>losst.ru</strong>, <strong>help.ubuntu.ru</strong>. Присоединяйтесь к форумам и чатам (например, Linux Mint Russian, Ubuntu Ru).</p>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- Дополнительная информация: примеры команд -->
+            <div class="section-title">ПОЛЕЗНЫЕ КОМАНДЫ</div>
+            <p class="text-block">
+                <span class="command"># Установка пакета</span> sudo apt install имя_пакета<br>
+                <span class="command"># Поиск пакета</span> apt search ключевое_слово<br>
+                <span class="command"># Показать информацию о системе</span> neofetch (установите отдельно)<br>
+                <span class="command"># Посмотреть использование диска</span> df -h<br>
+                <span class="command"># Процессы</span> top или htop
+            </p>
+
+            <!-- АВТОРЫ -->
+            <div class="section-title">АВТОРЫ</div>
+            <p class="text-block">
+                Тысячи разработчиков по всему миру, Линус Торвальдс, сообщества Debian, Ubuntu, Red Hat, Arch Linux и многие другие. <br>
+                <span class="command">Вы тоже можете стать частью!</span>
+            </p>
+
+            <!-- СООБЩЕНИЕ ОБ ОШИБКАХ -->
+            <div class="section-title">СООБЩЕНИЕ ОБ ОШИБКАХ</div>
+            <p class="text-block">
+                Багрепорты принимаются на форумах дистрибутивов, в баг-трекерах (bugzilla.kernel.org, launchpad.net) и на GitHub.
+            </p>
+
+            <!-- СМОТРИТЕ ТАКЖЕ (активные ссылки) -->
+            <div class="section-title">СМОТРИТЕ ТАКЖЕ</div>
+            <p class="text-block">
+                <a href="https://ubuntu.com/">Ubuntu</a>, <a href="https://getfedora.org/">Fedora</a>, <a href="https://www.debian.org/">Debian</a>, 
+                <a href="https://archlinux.org/">Arch Linux</a>, <a href="https://linuxmint.com/">Linux Mint</a>, <a href="https://www.opensuse.org/">openSUSE</a><br>
+                <a href="https://kernel.org/">kernel.org</a>, <a href="https://www.gnu.org/">gnu.org</a>, <a href="https://www.linuxfoundation.org/">linuxfoundation.org</a>, <a href="https://losst.ru/">losst.ru</a>
+            </p>
+
+            <hr>
+            <p class="text-block" style="color:#8bc34a;">
+                <em>Заметка: использование Linux может вызвать привыкание, чувство свободы 
+                и желание переустанавливать систему каждую неделю. Лечится выбором LTS-версии.</em>
+            </p>
+
+            <div class="prompt-line">
+                <span class="prompt-sign">user@linux:~$</span>
+                <span>./why-linux --help  # Информация выше</span>
+                <span class="blinking-cursor"></span>
+            </div>
+
+            <div class="man-footer">
+                SWITCH-TO-LINUX(1)                2026-02-21                 SWITCH-TO-LINUX(1)
+            </div>
+            <p style="text-align:right; color:#1e5e1e;">~ нажми Q для выхода (но ты уже в деле) ~</p>
+        </div> <!-- terminal-body -->
+    </div> <!-- terminal -->
+</body>
+</html>
